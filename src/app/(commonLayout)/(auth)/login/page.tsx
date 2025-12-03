@@ -1,4 +1,7 @@
-import LoginForm from "@/components/login-form";
+// import LoginForm from "@/components/login-form";
+
+import { LoginForm } from "@/components/login-form";
+import { TravelIllustration } from "@/components/TravelIllustration";
 
 const LoginPage = async ({
   searchParams,
@@ -7,15 +10,14 @@ const LoginPage = async ({
 }) => {
   const params = (await searchParams) || {};
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <div className="w-full max-w-md space-y-6 rounded-lg border p-8 shadow-lg">
-        <div className="space-y-2 text-center">
-          <h1 className="text-3xl font-bold">Welcome Back</h1>
-          <p className="text-gray-500">
-            Enter your credentials to access your account
-          </p>
-        </div>
-        <LoginForm redirect={params.redirect} />
+    <div className="min-h-screen w-full flex flex-col lg:flex-row">
+      {/* Left side - Login form */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-12 bg-white">
+        <LoginForm redirect={params.redirect}/>
+      </div>
+      {/* Right side - Illustration */}
+      <div className="w-full lg:w-1/2 hidden lg:flex bg-linear-to-br from-blue-50 via-mint-50 to-coral-50">
+        <TravelIllustration />
       </div>
     </div>
   );

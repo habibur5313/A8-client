@@ -1,4 +1,5 @@
 import RegisterForm from "@/components/register-form";
+import { RegistrationIllustration } from "@/components/RegistrationIllustration";
 import {
   Card,
   CardContent,
@@ -10,8 +11,8 @@ import {
 const RegisterPage = () => {
   return (
     <>
-      <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
-        <div className="w-full max-w-xl">
+      <div className="min-h-screen flex">
+        {/* <div className="w-full max-w-xl">
           <Card>
             <CardHeader>
               <CardTitle>Create an account</CardTitle>
@@ -19,11 +20,14 @@ const RegisterPage = () => {
                 Enter your information below to create your account
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent> */}
               <RegisterForm />
-            </CardContent>
+              {/* <div className="hidden lg:block"> */}
+                <RegistrationIllustration/>
+              {/* </div> */}
+            {/* </CardContent>
           </Card>
-        </div>
+        </div> */}
       </div>
     </>
   );

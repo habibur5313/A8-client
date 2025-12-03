@@ -58,6 +58,8 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
     }
   };
 
+  console.log(userInfo)
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
@@ -101,11 +103,11 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
                   {previewImage || profilePhoto ? (
                     <AvatarImage
                       src={previewImage || (profilePhoto as string)}
-                      alt={userInfo.name}
+                      alt={userInfo?.profile?.name || "Unknown user"}
                     />
                   ) : (
                     <AvatarFallback className="text-3xl">
-                      {getInitials(userInfo.name)}
+                      {getInitials(userInfo?.profile?.name || "Unknown user")}
                     </AvatarFallback>
                   )}
                 </Avatar>
@@ -127,7 +129,7 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
               </div>
 
               <div className="text-center">
-                <p className="font-semibold text-lg">{userInfo.name}</p>
+                <p className="font-semibold text-lg">{userInfo?.profile?.name || "Unknown user"}</p>
                 <p className="text-sm text-muted-foreground">
                   {userInfo.email}
                 </p>
@@ -163,7 +165,7 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
                   <Input
                     id="name"
                     name="name"
-                    defaultValue={profileData?.name || userInfo.name}
+                    defaultValue={profileData?.name || userInfo?.profile?.name || "Unknown user"}
                     required
                     disabled={isPending}
                   />
@@ -185,7 +187,7 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
                   <Input
                     id="contactNumber"
                     name="contactNumber"
-                    defaultValue={profileData?.contactNumber || ""}
+                    defaultValue={profileData?.contactNumber || userInfo?.profile?.contactNumber || ""}
                     required
                     disabled={isPending}
                   />

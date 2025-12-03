@@ -15,4 +15,12 @@ export interface UserInfo {
   guide?: IGuide;
   createdAt: string;
   updatedAt: string;
+  profile: {
+    name?: string;
+    contactNumber?: string;
+    address?: string;
+    phone?: string;
+    avatarUrl?: string;
+    bio?: string;
+  };
 }

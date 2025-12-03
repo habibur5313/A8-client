@@ -17,6 +17,16 @@ const RegisterForm = () => {
     }
   }, [state]);
   return (
+    <div className="flex-1 flex items-center justify-center p-6 lg:p-12 bg-gray-50">
+        <div className="w-full max-w-md">
+          <div className="mb-8">
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+              Start Your Journey
+            </h1>
+            <p className="text-gray-600">
+              Join our community of travelers and local guides
+            </p>
+          </div>
     <form action={formAction}>
       <FieldGroup>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -83,6 +93,8 @@ const RegisterForm = () => {
         </FieldGroup>
       </FieldGroup>
     </form>
+    </div>
+    </div>
   );
 };
 
