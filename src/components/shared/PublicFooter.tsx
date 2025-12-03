@@ -1,5 +1,14 @@
+"use client";
 import { MapPin, Mail, Phone, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 export function PublicFooter() {
+  const pathname = usePathname();
+  
+  // Routes where navbar should be hidden
+    const hiddenRoutes = ["/login", "/register", "/forget-password"];
+  
+    // If current route matches any hidden route → don't render navbar
+    if (hiddenRoutes.includes(pathname)) return null;
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

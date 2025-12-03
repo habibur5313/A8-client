@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>AI-Powered Healthcare - Find Your Perfect Doctor</title>
+        <title>Travel Guide AI</title>
         <meta
           name="description"
-          content="Discover top-rated doctors tailored to your needs with our AI-powered healthcare platform. Get personalized recommendations and book appointments effortlessly."
+          content="A modern travel guide powered by AI to personalize your adventures. Discover hidden gems, plan itineraries, and explore like a local with intelligent recommendations tailored just for you. Your ultimate travel companion. builded with Next.js, Tailwind CSS, and OpenAI."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
