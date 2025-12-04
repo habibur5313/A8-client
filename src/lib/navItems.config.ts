@@ -42,13 +42,6 @@ export const guideNavItems: NavSection[] = [
         title: "Tourist Management",
         items: [
             {
-                title: "Appointments",
-                href: "/guide/dashboard/appoinments",
-                icon: "Calendar", // ✅ String
-                badge: "3",
-                roles: ["GUIDE"],
-            },
-            {
                 title: "My Schedules",
                 href: "/guide/dashboard/my-schedules",
                 icon: "Clock", // ✅ String
@@ -62,37 +55,8 @@ export const touristNavItems: NavSection[] = [
     {
         title: "Appointments",
         items: [
-            {
-                title: "My Appointments",
-                href: "/dashboard/my-appointments",
-                icon: "Calendar", // ✅ String
-                roles: ["TOURIST"],
-            },
-            {
-                title: "Book Appointment",
-                href: "/consultation",
-                icon: "ClipboardList", // ✅ String
-                roles: ["TOURIST"],
-            },
         ],
     },
-    // {
-    //     title: "Medical Records",
-    //     items: [
-    //         {
-    //             title: "My Prescriptions",
-    //             href: "/dashboard/my-prescriptions",
-    //             icon: "FileText", // ✅ String
-    //             roles: ["TOURIST"],
-    //         },
-    //         {
-    //             title: "Health Records",
-    //             href: "/dashboard/health-records",
-    //             icon: "Activity", // ✅ String
-    //             roles: ["TOURIST"],
-    //         },
-    //     ],
-    // },
 
 ]
 
