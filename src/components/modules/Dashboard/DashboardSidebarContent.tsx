@@ -1,14 +1,13 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { getIconComponent } from "@/lib/icon-mapper";
-import { cn } from "@/lib/utils";
-import { NavSection } from "@/types/dashboard.interface";
-import { UserInfo } from "@/types/user.interface";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
+import { getIconComponent } from "@/lib/icon-mapper";
+import { NavSection } from "@/types/dashboard.interface";
+import { UserInfo } from "@/types/user.interface";
+import { Map } from "lucide-react";
 
 interface DashboardSidebarContentProps {
   userInfo: UserInfo;
@@ -22,80 +21,80 @@ const DashboardSidebarContent = ({
   dashboardHome,
 }: DashboardSidebarContentProps) => {
   const pathname = usePathname();
+
   return (
-    <div className="hidden md:flex h-full w-64 flex-col border-r bg-card">
-      {/* Logo/Brand */}
-      <div className="flex h-16 items-center border-b px-6">
-        <Link href={dashboardHome} className="flex items-center space-x-2">
-          <span className="text-xl font-bold text-primary">PH Healthcare</span>
+    <aside className="hidden md:flex w-64 min-h-screen bg-white/80 backdrop-blur-xl border-r border-slate-200/60 flex-col">
+      
+      {/* Logo / Brand */}
+      <div className="p-6 border-b border-slate-200/60">
+        <Link href={dashboardHome} className="flex items-center gap-2">
+          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-teal-500 rounded-xl flex items-center justify-center">
+            <Map className="text-white" size={24} />
+          </div>
+          <div>
+            <h1 className="text-lg font-semibold text-slate-800">TravelGuide</h1>
+            <p className="text-xs text-slate-500">Dashboard</p>
+          </div>
         </Link>
       </div>
 
       {/* Navigation */}
-      <ScrollArea className="flex-1 px-3 py-4">
+      <ScrollArea className="flex-1 p-4">
         <nav className="space-y-6">
           {navItems.map((section, sectionIdx) => (
             <div key={sectionIdx}>
               {section.title && (
-                <h4 className="mb-2 px-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                <h4 className="mb-2 px-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">
                   {section.title}
                 </h4>
               )}
-              <div className="space-y-1">
+
+              <ul className="space-y-1">
                 {section.items.map((item) => {
-                  const isActive = pathname === item.href;
                   const Icon = getIconComponent(item.icon);
+                  const isActive = pathname === item.href;
 
                   return (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={cn(
-                        "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-all",
-                        isActive
-                          ? "bg-primary text-primary-foreground"
-                          : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-                      )}
-                    >
-                      <Icon className="h-4 w-4" />
-                      <span className="flex-1">{item.title}</span>
-                      {item.badge && (
-                        <Badge
-                          variant={isActive ? "secondary" : "default"}
-                          className="ml-auto"
-                        >
-                          {item.badge}
-                        </Badge>
-                      )}
-                    </Link>
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          "w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all",
+                          isActive
+                            ? "bg-gradient-to-r from-blue-500 to-teal-500 text-white shadow-lg shadow-blue-500/25"
+                            : "text-slate-600 hover:bg-slate-100/80 hover:text-slate-800"
+                        )}
+                      >
+                        <Icon className="h-5 w-5" />
+                        <span className="font-medium">{item.title}</span>
+                      </Link>
+                    </li>
                   );
                 })}
-              </div>
-              {sectionIdx < navItems.length - 1 && (
-                <Separator className="my-4" />
-              )}
+              </ul>
             </div>
           ))}
         </nav>
       </ScrollArea>
 
-      {/* User Info at Bottom */}
-      <div className="border-t p-4">
-        <div className="flex items-center gap-3">
-          <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-            <span className="text-sm font-semibold text-primary">
-              {userInfo.name.charAt(0).toUpperCase()}
-            </span>
+      {/* Bottom User Info */}
+      <div className="p-4 border-t border-slate-200/60">
+        <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50/80">
+          <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full flex items-center justify-center text-white font-semibold">
+            {userInfo.name.charAt(0).toUpperCase()}
           </div>
-          <div className="flex-1 overflow-hidden">
-            <p className="text-sm font-medium truncate">{userInfo.name}</p>
-            <p className="text-xs text-muted-foreground capitalize">
+
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-medium text-slate-800 truncate">
+              {userInfo.name}
+            </p>
+            <p className="text-xs text-slate-500 capitalize">
               {userInfo.role.toLowerCase()}
             </p>
           </div>
         </div>
       </div>
-    </div>
+    </aside>
   );
 };
 

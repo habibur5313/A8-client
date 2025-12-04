@@ -1,7 +1,7 @@
 export type UserRole = "SUPER_ADMIN" | "ADMIN" | "GUIDE" | "TOURIST";
 
 // exact : ["/my-profile", "settings"]
-//   patterns: [/^\/dashboard/, /^\/patient/], // Routes starting with /dashboard/* /patient/*
+//   patterns: [/^\/dashboard/, /^\/tourist/], // Routes starting with /dashboard/* /tourist/*
 export type RouteConfig = {
     exact: string[],
     patterns: RegExp[],
@@ -14,8 +14,8 @@ export const commonProtectedRoutes: RouteConfig = {
     patterns: [], // [/password/change-password, /password/reset-password => /password/*]
 }
 
-export const doctorProtectedRoutes: RouteConfig = {
-    patterns: [/^\/doctor/], // Routes starting with /doctor/* , /assitants, /appointments/*
+export const guideProtectedRoutes: RouteConfig = {
+    patterns: [/^\/guide/], // Routes starting with /guide/*
     exact: [], // "/assistants"
 }
 
@@ -24,7 +24,7 @@ export const adminProtectedRoutes: RouteConfig = {
     exact: [], // "/admins"
 }
 
-export const patientProtectedRoutes: RouteConfig = {
+export const touristProtectedRoutes: RouteConfig = {
     patterns: [/^\/dashboard/], // Routes starting with /dashboard/*
     exact: [], // "/dashboard"
 }
@@ -41,15 +41,15 @@ export const isRouteMatches = (pathname: string, routes: RouteConfig): boolean =
     // if pathname === /dashboard/my-appointments => matches /^\/dashboard/ => true
 }
 
-export const getRouteOwner = (pathname: string): "ADMIN" | "DOCTOR" | "PATIENT" | "COMMON" | null => {
+export const getRouteOwner = (pathname: string): "ADMIN" | "GUIDE" | "TOURIST" | "COMMON" | null => {
     if (isRouteMatches(pathname, adminProtectedRoutes)) {
         return "ADMIN";
     }
-    if (isRouteMatches(pathname, doctorProtectedRoutes)) {
-        return "DOCTOR";
+    if (isRouteMatches(pathname, guideProtectedRoutes)) {
+        return "GUIDE";
     }
-    if (isRouteMatches(pathname, patientProtectedRoutes)) {
-        return "PATIENT";
+    if (isRouteMatches(pathname, touristProtectedRoutes)) {
+        return "TOURIST";
     }
     if (isRouteMatches(pathname, commonProtectedRoutes)) {
         return "COMMON";
@@ -65,7 +65,7 @@ export const getDefaultDashboardRoute = (role: UserRole): string => {
         return "/admin/dashboard";
     }
     if (role === "GUIDE") {
-        return "/doctor/dashboard";
+        return "/guide/dashboard";
     }
     if (role === "TOURIST") {
         return "/dashboard";
