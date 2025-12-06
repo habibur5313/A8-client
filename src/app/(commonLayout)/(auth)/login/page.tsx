@@ -2,6 +2,7 @@
 
 import { LoginForm } from "@/components/login-form";
 import { TravelIllustration } from "@/components/TravelIllustration";
+import { Suspense } from "react";
 
 const LoginPage = async ({
   searchParams,
@@ -10,6 +11,7 @@ const LoginPage = async ({
 }) => {
   const params = (await searchParams) || {};
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <div className="min-h-screen w-full flex flex-col lg:flex-row">
       {/* Left side - Login form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-12 bg-white">
@@ -20,7 +22,9 @@ const LoginPage = async ({
         <TravelIllustration />
       </div>
     </div>
+    </Suspense>
   );
 };
 
 export default LoginPage;
+
