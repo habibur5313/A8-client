@@ -21,7 +21,7 @@ export interface IGuide {
   totalReviews: number;
   isAvailable: boolean;
   isDeleted: boolean;
-  idVerified: boolean;
+  isVerified: boolean;
   createdAt: string;
   updatedAt: string;
 }
