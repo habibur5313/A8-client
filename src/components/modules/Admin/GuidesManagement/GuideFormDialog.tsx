@@ -1,7 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import React, { useActionState, useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useActionState,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
@@ -34,7 +40,12 @@ interface GuideFormDialogProps {
   guide?: Partial<IGuide> | null;
 }
 
-export default function GuideFormDialog({ open, onClose, onSuccess, guide }: GuideFormDialogProps) {
+export default function GuideFormDialog({
+  open,
+  onClose,
+  onSuccess,
+  guide,
+}: GuideFormDialogProps) {
   const isEdit = !!guide?.id;
 
   // form ref & file input ref
@@ -42,20 +53,29 @@ export default function GuideFormDialog({ open, onClose, onSuccess, guide }: Gui
   const fileRef = useRef<HTMLInputElement | null>(null);
 
   // tag inputs
-  const [languages, setLanguages] = useState<string[]>(() => (guide as any)?.languages ?? []);
+  const [languages, setLanguages] = useState<string[]>(
+    () => (guide as any)?.languages ?? []
+  );
   const [languageInput, setLanguageInput] = useState("");
-  const [skills, setSkills] = useState<string[]>(() => (guide as any)?.skills ?? []);
+  const [skills, setSkills] = useState<string[]>(
+    () => (guide as any)?.skills ?? []
+  );
   const [skillInput, setSkillInput] = useState("");
 
   // preview file
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [previewUrl, setPreviewUrl] = useState<string | null>(() => (guide as any)?.profilePhoto ?? null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(
+    () => (guide as any)?.profilePhoto ?? null
+  );
 
   // gender local state (keeps Select controlled)
-  const [gender, setGender] = useState<Gender>((guide?.gender as Gender) ?? "MALE");
+  const [gender, setGender] = useState<Gender>(
+    (guide?.gender as Gender) ?? "MALE"
+  );
 
   // useActionState: bind updateGuide to id when editing
-  const actionFn = isEdit && guide?.id ? updateGuide.bind(null, guide.id) : createGuide;
+  const actionFn =
+    isEdit && guide?.id ? updateGuide.bind(null, guide.id) : createGuide;
   const [state, formAction, pending] = useActionState(actionFn, null);
 
   // Keep preview in sync when user chooses file
@@ -103,7 +123,8 @@ export default function GuideFormDialog({ open, onClose, onSuccess, guide }: Gui
     setLanguages((prev) => Array.from(new Set([...prev, v])));
     setLanguageInput("");
   };
-  const removeLanguage = (val: string) => setLanguages((prev) => prev.filter((p) => p !== val));
+  const removeLanguage = (val: string) =>
+    setLanguages((prev) => prev.filter((p) => p !== val));
 
   const addSkill = (value?: string) => {
     const v = (value ?? skillInput).trim();
@@ -111,25 +132,30 @@ export default function GuideFormDialog({ open, onClose, onSuccess, guide }: Gui
     setSkills((prev) => Array.from(new Set([...prev, v])));
     setSkillInput("");
   };
-  const removeSkill = (val: string) => setSkills((prev) => prev.filter((p) => p !== val));
+  const removeSkill = (val: string) =>
+    setSkills((prev) => prev.filter((p) => p !== val));
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] ?? null;
     setSelectedFile(file);
   };
 
-  // The form uses browser-native submission to the server action from useActionState.
-  // We need to keep hidden inputs for languages/skills as JSON strings so server.parse works.
-  // Default values for fields come from guide when editing.
+  const handleClose = () => {
+    formRef.current?.reset();
+    setLanguages([]);
+    setSkills([]);
+    setLanguageInput("");
+    setSkillInput("");
+    setSelectedFile(null);
+    setPreviewUrl(null);
+    setGender((guide?.gender as Gender) ?? "MALE");
+
+    if (fileRef.current) fileRef.current.value = "";
+    onClose();
+  };
+
   return (
-    <Dialog
-      open={open}
-      onOpenChange={() => {
-        // closing via backdrop or ESC should just reset & notify parent
-        if (!open) return;
-        // don't auto-close here; parent controls open
-      }}
-    >
+    <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="max-h-[90vh] w-[800px] flex flex-col p-0">
         <DialogHeader className="px-6 pt-6 pb-4">
           <DialogTitle>{isEdit ? "Edit Guide" : "Create Guide"}</DialogTitle>
@@ -147,13 +173,25 @@ export default function GuideFormDialog({ open, onClose, onSuccess, guide }: Gui
             <div className="grid grid-cols-2 gap-4">
               <Field>
                 <FieldLabel htmlFor="name">Name</FieldLabel>
-                <Input id="name" name="name" defaultValue={guide?.name ?? ""} placeholder="Rahim Uddin" />
+                <Input
+                  id="name"
+                  name="name"
+                  defaultValue={guide?.name ?? ""}
+                  placeholder="Rahim Uddin"
+                />
                 <InputFieldError state={state} field="name" />
               </Field>
 
               <Field>
                 <FieldLabel htmlFor="email">Email</FieldLabel>
-                <Input id="email" name="email" type="email" defaultValue={guide?.email ?? ""} placeholder="guide@example.com" disabled={isEdit} />
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  defaultValue={guide?.email ?? ""}
+                  placeholder="guide@example.com"
+                  disabled={isEdit}
+                />
                 <InputFieldError state={state} field="email" />
               </Field>
             </div>
@@ -163,13 +201,25 @@ export default function GuideFormDialog({ open, onClose, onSuccess, guide }: Gui
               <div className="grid grid-cols-2 gap-4">
                 <Field>
                   <FieldLabel htmlFor="password">Password</FieldLabel>
-                  <Input id="password" name="password" type="password" placeholder="Enter password" />
+                  <Input
+                    id="password"
+                    name="password"
+                    type="password"
+                    placeholder="Enter password"
+                  />
                   <InputFieldError state={state} field="password" />
                 </Field>
 
                 <Field>
-                  <FieldLabel htmlFor="confirmPassword">Confirm Password</FieldLabel>
-                  <Input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm password" />
+                  <FieldLabel htmlFor="confirmPassword">
+                    Confirm Password
+                  </FieldLabel>
+                  <Input
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    placeholder="Confirm password"
+                  />
                   <InputFieldError state={state} field="confirmPassword" />
                 </Field>
               </div>
@@ -179,7 +229,12 @@ export default function GuideFormDialog({ open, onClose, onSuccess, guide }: Gui
             <div className="grid grid-cols-2 gap-4">
               <Field>
                 <FieldLabel htmlFor="contactNumber">Contact Number</FieldLabel>
-                <Input id="contactNumber" name="contactNumber" defaultValue={guide?.contactNumber ?? ""} placeholder="017xxxxxxxx" />
+                <Input
+                  id="contactNumber"
+                  name="contactNumber"
+                  defaultValue={guide?.contactNumber ?? ""}
+                  placeholder="017xxxxxxxx"
+                />
                 <InputFieldError state={state} field="contactNumber" />
               </Field>
 
@@ -187,7 +242,10 @@ export default function GuideFormDialog({ open, onClose, onSuccess, guide }: Gui
                 <FieldLabel htmlFor="gender">Gender</FieldLabel>
                 {/* keep a hidden input so FormData contains gender value */}
                 <input type="hidden" name="gender" value={gender} />
-                <Select value={gender} onValueChange={(val) => setGender(val as Gender)}>
+                <Select
+                  value={gender}
+                  onValueChange={(val) => setGender(val as Gender)}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Select gender" />
                   </SelectTrigger>
@@ -204,13 +262,23 @@ export default function GuideFormDialog({ open, onClose, onSuccess, guide }: Gui
             <div className="grid grid-cols-2 gap-4">
               <Field>
                 <FieldLabel htmlFor="address">Address</FieldLabel>
-                <Input id="address" name="address" defaultValue={guide?.address ?? ""} placeholder="House 12, Road 8, Sylhet" />
+                <Input
+                  id="address"
+                  name="address"
+                  defaultValue={guide?.address ?? ""}
+                  placeholder="House 12, Road 8, Sylhet"
+                />
                 <InputFieldError state={state} field="address" />
               </Field>
 
               <Field>
                 <FieldLabel htmlFor="district">District</FieldLabel>
-                <Input id="district" name="district" defaultValue={(guide as any)?.district ?? ""} placeholder="Sylhet" />
+                <Input
+                  id="district"
+                  name="district"
+                  defaultValue={(guide as any)?.district ?? ""}
+                  placeholder="Sylhet"
+                />
                 <InputFieldError state={state} field="district" />
               </Field>
             </div>
@@ -218,14 +286,27 @@ export default function GuideFormDialog({ open, onClose, onSuccess, guide }: Gui
             {/* reg no / experience */}
             <div className="grid grid-cols-2 gap-4">
               <Field>
-                <FieldLabel htmlFor="registrationNumber">Registration Number</FieldLabel>
-                <Input id="registrationNumber" name="registrationNumber" defaultValue={guide?.registrationNumber ?? ""} placeholder="REG-20225-0013ew" />
+                <FieldLabel htmlFor="registrationNumber">
+                  Registration Number
+                </FieldLabel>
+                <Input
+                  id="registrationNumber"
+                  name="registrationNumber"
+                  defaultValue={guide?.registrationNumber ?? ""}
+                  placeholder="REG-20225-0013ew"
+                />
                 <InputFieldError state={state} field="registrationNumber" />
               </Field>
 
               <Field>
                 <FieldLabel htmlFor="experience">Experience (years)</FieldLabel>
-                <Input id="experience" name="experience" defaultValue={String(guide?.experience ?? 0)} type="number" min={0} />
+                <Input
+                  id="experience"
+                  name="experience"
+                  defaultValue={String(guide?.experience ?? 0)}
+                  type="number"
+                  min={0}
+                />
                 <InputFieldError state={state} field="experience" />
               </Field>
             </div>
@@ -234,28 +315,51 @@ export default function GuideFormDialog({ open, onClose, onSuccess, guide }: Gui
             <div className="grid grid-cols-2 gap-4">
               <Field>
                 <FieldLabel htmlFor="guideFee">Guide Fee (BDT)</FieldLabel>
-                <Input id="guideFee" name="guideFee" defaultValue={String((guide as any)?.guideFee ?? 0)} type="number" min={0} />
+                <Input
+                  id="guideFee"
+                  name="guideFee"
+                  defaultValue={String((guide as any)?.guideFee ?? 0)}
+                  type="number"
+                  min={0}
+                />
                 <InputFieldError state={state} field="guideFee" />
               </Field>
 
               <Field>
                 <FieldLabel htmlFor="qualification">Qualification</FieldLabel>
-                <Input id="qualification" name="qualification" defaultValue={guide?.qualification ?? ""} />
+                <Input
+                  id="qualification"
+                  name="qualification"
+                  defaultValue={guide?.qualification ?? ""}
+                />
                 <InputFieldError state={state} field="qualification" />
               </Field>
             </div>
 
             {/* currentWorkingPlace */}
             <Field>
-              <FieldLabel htmlFor="currentWorkingPlace">Current Working Place</FieldLabel>
-              <Input id="currentWorkingPlace" name="currentWorkingPlace" defaultValue={guide?.currentWorkingPlace ?? ""} placeholder="Sylhet Local Tourism Center" />
+              <FieldLabel htmlFor="currentWorkingPlace">
+                Current Working Place
+              </FieldLabel>
+              <Input
+                id="currentWorkingPlace"
+                name="currentWorkingPlace"
+                defaultValue={guide?.currentWorkingPlace ?? ""}
+                placeholder="Sylhet Local Tourism Center"
+              />
               <InputFieldError state={state} field="currentWorkingPlace" />
             </Field>
 
             {/* about */}
             <Field>
               <FieldLabel htmlFor="about">About</FieldLabel>
-              <Textarea id="about" name="about" defaultValue={(guide as any)?.about ?? ""} rows={4} placeholder="Short bio about the guide..." />
+              <Textarea
+                id="about"
+                name="about"
+                defaultValue={(guide as any)?.about ?? ""}
+                rows={4}
+                placeholder="Short bio about the guide..."
+              />
               <InputFieldError state={state} field="about" />
             </Field>
 
@@ -264,7 +368,11 @@ export default function GuideFormDialog({ open, onClose, onSuccess, guide }: Gui
               <FieldLabel>Languages</FieldLabel>
 
               {/* hidden input so server receives JSON string of languages */}
-              <input type="hidden" name="languages" value={JSON.stringify(languages)} />
+              <input
+                type="hidden"
+                name="languages"
+                value={JSON.stringify(languages)}
+              />
 
               <div className="flex gap-2 items-center">
                 <input
@@ -279,14 +387,25 @@ export default function GuideFormDialog({ open, onClose, onSuccess, guide }: Gui
                   placeholder="Type language and press Enter (e.g., Bangla)"
                   className="flex-1 rounded-md border px-2 py-1"
                 />
-                <Button type="button" onClick={() => addLanguage()} size="sm">Add</Button>
+                <Button type="button" onClick={() => addLanguage()} size="sm">
+                  Add
+                </Button>
               </div>
 
               <div className="mt-2 flex flex-wrap gap-2">
                 {languages.map((lang) => (
-                  <div key={lang} className="flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-sm">
+                  <div
+                    key={lang}
+                    className="flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-sm"
+                  >
                     <span>{lang}</span>
-                    <button type="button" onClick={() => removeLanguage(lang)} className="text-xs opacity-80">×</button>
+                    <button
+                      type="button"
+                      onClick={() => removeLanguage(lang)}
+                      className="text-xs opacity-80"
+                    >
+                      ×
+                    </button>
                   </div>
                 ))}
               </div>
@@ -298,7 +417,11 @@ export default function GuideFormDialog({ open, onClose, onSuccess, guide }: Gui
             <Field>
               <FieldLabel>Skills</FieldLabel>
 
-              <input type="hidden" name="skills" value={JSON.stringify(skills)} />
+              <input
+                type="hidden"
+                name="skills"
+                value={JSON.stringify(skills)}
+              />
 
               <div className="flex gap-2 items-center">
                 <input
@@ -313,14 +436,25 @@ export default function GuideFormDialog({ open, onClose, onSuccess, guide }: Gui
                   placeholder="Type skill and press Enter (e.g., Photography)"
                   className="flex-1 rounded-md border px-2 py-1"
                 />
-                <Button type="button" onClick={() => addSkill()} size="sm">Add</Button>
+                <Button type="button" onClick={() => addSkill()} size="sm">
+                  Add
+                </Button>
               </div>
 
               <div className="mt-2 flex flex-wrap gap-2">
                 {skills.map((s) => (
-                  <div key={s} className="flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-sm">
+                  <div
+                    key={s}
+                    className="flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-sm"
+                  >
                     <span>{s}</span>
-                    <button type="button" onClick={() => removeSkill(s)} className="text-xs opacity-80">×</button>
+                    <button
+                      type="button"
+                      onClick={() => removeSkill(s)}
+                      className="text-xs opacity-80"
+                    >
+                      ×
+                    </button>
                   </div>
                 ))}
               </div>
@@ -337,15 +471,32 @@ export default function GuideFormDialog({ open, onClose, onSuccess, guide }: Gui
                     {previewUrl ? (
                       // ensure external domains allowed in next.config.js if needed
                       // using Image with external url requires domains config; local preview will work
-                      <Image src={previewUrl!} alt="preview" width={80} height={80} className="rounded-full" />
+                      <Image
+                        src={previewUrl!}
+                        alt="preview"
+                        width={80}
+                        height={80}
+                        className="rounded-full"
+                      />
                     ) : (
-                      <div className="h-20 w-20 rounded-full bg-muted/40 flex items-center justify-center">No Image</div>
+                      <div className="h-20 w-20 rounded-full bg-muted/40 flex items-center justify-center">
+                        No Image
+                      </div>
                     )}
                   </div>
 
                   <div className="flex-1">
-                    <input ref={fileRef} id="file" name="file" type="file" accept="image/*" onChange={handleFileChange} />
-                    <p className="text-xs mt-1 text-muted-foreground">Recommended: square image up to 2MB</p>
+                    <input
+                      ref={fileRef}
+                      id="file"
+                      name="file"
+                      type="file"
+                      accept="image/*"
+                      onChange={handleFileChange}
+                    />
+                    <p className="text-xs mt-1 text-muted-foreground">
+                      Recommended: square image up to 2MB
+                    </p>
                   </div>
                 </div>
 
@@ -354,24 +505,15 @@ export default function GuideFormDialog({ open, onClose, onSuccess, guide }: Gui
             )}
           </div>
 
-          <div className="flex justify-end gap-2 px-6 py-4 border-t bg-background">
+          <div className="flex justify-end gap-2 px-6 py-4 border-t bg-gray-50">
             <Button
               type="button"
               variant="outline"
-              onClick={() => {
-                // simple reset on cancel
-                formRef.current?.reset();
-                setLanguages([]);
-                setSkills([]);
-                setSelectedFile(null);
-                if (fileRef.current) fileRef.current.value = "";
-                onClose();
-              }}
+              onClick={handleClose}
               disabled={pending}
             >
               Cancel
             </Button>
-
             <Button type="submit" disabled={pending}>
               {pending ? "Saving..." : isEdit ? "Update Guide" : "Create Guide"}
             </Button>

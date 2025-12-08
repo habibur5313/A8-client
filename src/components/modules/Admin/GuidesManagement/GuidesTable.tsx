@@ -10,27 +10,7 @@ import { toast } from "sonner";
 import GuideFormDialog from "./GuideFormDialog";
 import GuideViewDetailDialog from "./GuideViewDetailDialog";
 
-// ===============================
-// TABLE COLUMNS
-// ===============================
-const guidesColumns: Array<{ header: string; accessor: keyof IGuide }> = [
-  {
-    header: "Name",
-    accessor: "name",
-  },
-  {
-    header: "Email",
-    accessor: "email",
-  },
-  {
-    header: "Phone",
-    accessor: "contactNumber", // FIXED
-  },
-  {
-    header: "District",
-    accessor: "district",
-  },
-];
+import { guideColumns as guidesColumns } from "./GuidesColumns";
 
 const GuidesTable = ({ guides }: { guides: IGuide[] }) => {
   const router = useRouter();

@@ -1,5 +1,5 @@
-import TouristsFilter from "@/components/modules/Admin/PatientsManagement/TouristsFilter";
-import TouristsTable from "@/components/modules/Admin/PatientsManagement/TouristsTable";
+import TouristsFilter from "@/components/modules/Admin/TouristsManagement/TouristsFilter";
+import TouristsTable from "@/components/modules/Admin/TouristsManagement/TouristsTable";
 import ManagementPageHeader from "@/components/shared/ManagementPageHeader";
 import TablePagination from "@/components/shared/TablePagination";
 import { TableSkeleton } from "@/components/shared/TableSkeleton";

@@ -181,7 +181,6 @@ export async function getNewAccessToken() {
 
         const result = await response.json();
 
-        console.log("access token refreshed!!");
 
         const setCookieHeaders = response.headers.getSetCookie();
 

@@ -3,6 +3,7 @@ export interface IGuide {
   userId: string;
   name: string;
   email: string;
+  password?: string
   profilePhoto?: string | null;
   contactNumber: string;
   gender: string;

@@ -12,7 +12,6 @@ const AdminGuidesManagementPage = async ({ searchParams }: { searchParams: Promi
   const queryString = queryStringFormatter(searchParamsObj);
 
   const guidesResult = await getGuides(queryString);
-  console.log(guidesResult)
 
   const totalPages = Math.ceil(
     (guidesResult?.meta?.total || 1) / (guidesResult?.meta?.limit || 1)

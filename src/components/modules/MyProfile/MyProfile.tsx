@@ -58,7 +58,6 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
     }
   };
 
-  console.log(userInfo)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

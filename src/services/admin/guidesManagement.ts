@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-"use server"
+"use server";
 
 import { serverFetch } from "@/lib/server-fetch";
 import { zodValidator } from "@/lib/zodValidator";
 import { IGuide } from "@/types/guide.interface";
-import { createGuideZodSchema, updateGuideZodSchema } from "@/zod/guides.validation";
+import {
+  createGuideZodSchema,
+  updateGuideZodSchema,
+} from "@/zod/guides.validation";
 
 // ===============================
 // CREATE GUIDE
@@ -40,6 +43,7 @@ export async function createGuide(_prevState: any, formData: FormData) {
   const validationPayload: Partial<IGuide> = {
     name: formData.get("name") as string,
     email: formData.get("email") as string,
+    password: formData.get("password") as string,
     contactNumber: formData.get("contactNumber") as string,
     address: formData.get("address") as string,
     district: formData.get("district") as string,
@@ -53,11 +57,13 @@ export async function createGuide(_prevState: any, formData: FormData) {
     designation: formData.get("designation") as string,
     languages,
     skills,
-    profilePhoto: "",
+    profilePhoto: formData.get("file") as unknown as string,
   };
 
-  const validatedPayload = zodValidator(validationPayload, createGuideZodSchema);
-
+  const validatedPayload = zodValidator(
+    validationPayload,
+    createGuideZodSchema
+  );
   if (!validatedPayload.success || !validatedPayload.data) {
     return {
       success: false,
@@ -90,8 +96,14 @@ export async function createGuide(_prevState: any, formData: FormData) {
 
   const newFormData = new FormData();
   newFormData.append("data", JSON.stringify(backendPayload));
-  newFormData.append("file", formData.get("file") as Blob);
 
+  const file = formData.get("file");
+
+  if (file && file instanceof File && file.size > 0) {
+    newFormData.append("file", formData.get("file") as Blob);
+  }
+
+  console.log(newFormData);
   try {
     const response = await serverFetch.post("/user/create-guide", {
       body: newFormData,
