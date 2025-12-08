@@ -1,9 +1,45 @@
-import React from 'react'
+import TouristsFilter from "@/components/modules/Admin/PatientsManagement/TouristsFilter";
+import TouristsTable from "@/components/modules/Admin/PatientsManagement/TouristsTable";
+import ManagementPageHeader from "@/components/shared/ManagementPageHeader";
+import TablePagination from "@/components/shared/TablePagination";
+import { TableSkeleton } from "@/components/shared/TableSkeleton";
+import { queryStringFormatter } from "@/lib/formatters";
+import { getTourists } from "@/services/admin/touristsManagement";
+import { Suspense } from "react";
 
-const TouristsManagement = () => {
+const AdminTouristsManagementPage = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) => {
+  const searchParamsObj = await searchParams;
+  const queryString = queryStringFormatter(searchParamsObj);
+  const touristsResult = await getTourists(queryString);
+
+  const totalPages = Math.ceil(
+    (touristsResult?.meta?.total || 1) / (touristsResult?.meta?.limit || 1)
+  );
+
   return (
-    <div>TouristsManagement</div>
-  )
-}
+    <div className="space-y-6">
+      <ManagementPageHeader
+        title="Tourists Management"
+        description="Manage tourists information and details"
+      />
 
-export default TouristsManagement
+      {/* Search, Filters */}
+      <TouristsFilter />
+
+      <Suspense fallback={<TableSkeleton columns={10} rows={10} />}>
+        <TouristsTable tourists={touristsResult?.data || []} />
+
+        <TablePagination
+          currentPage={touristsResult?.meta?.page || 1}
+          totalPages={totalPages || 1}
+        />
+      </Suspense>
+    </div>
+  );
+};
+
+export default AdminTouristsManagementPage;

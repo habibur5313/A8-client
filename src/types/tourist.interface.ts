@@ -9,7 +9,7 @@ export interface ITourist {
   address?: string;
   preferences?: string[];
   emergencyContact?: string;
-  isDeleted: Boolean;
+  isDeleted: boolean;
   createdAt: string;
   updatedAt: string;
 }
