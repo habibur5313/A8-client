@@ -24,11 +24,11 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
 
   const getProfilePhoto = () => {
     if (userInfo.role === "ADMIN") {
-      return userInfo.admin?.profilePhoto;
+      return userInfo.admin?.profile.profilePhoto;
     } else if (userInfo.role === "GUIDE") {
-      return userInfo?.guide?.profilePhoto;
+      return userInfo?.guide?.profile.profilePhoto;
     } else if (userInfo.role === "TOURIST") {
-      return userInfo.tourist?.profilePhoto;
+      return userInfo.tourist?.profile.profilePhoto;
     }
     return null;
   };
@@ -186,7 +186,7 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
                   <Input
                     id="contactNumber"
                     name="contactNumber"
-                    defaultValue={profileData?.contactNumber || userInfo?.profile?.contactNumber || ""}
+                    defaultValue={profileData?.profile?.contactNumber || userInfo?.profile?.contactNumber || ""}
                     required
                     disabled={isPending}
                   />
@@ -200,7 +200,7 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
                       <Input
                         id="address"
                         name="address"
-                        defaultValue={userInfo.guide.address || ""}
+                        defaultValue={userInfo.guide.profile.address || ""}
                         disabled={isPending}
                       />
                     </div>
@@ -212,7 +212,7 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
                       <Input
                         id="registrationNumber"
                         name="registrationNumber"
-                        defaultValue={userInfo.guide.registrationNumber || ""}
+                        defaultValue={userInfo.guide.profile.registrationNumber || ""}
                         required
                         disabled={isPending}
                       />
@@ -224,7 +224,7 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
                         id="experience"
                         name="experience"
                         type="number"
-                        defaultValue={userInfo.guide.experience || ""}
+                        defaultValue={userInfo.guide.profile.experience || ""}
                         disabled={isPending}
                       />
                     </div>
@@ -235,7 +235,7 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
                         id="appointmentFee"
                         name="appointmentFee"
                         type="number"
-                        defaultValue={userInfo.guide.guideFee || ""}
+                        defaultValue={userInfo.guide.profile.guideFee || ""}
                         required
                         disabled={isPending}
                       />
@@ -246,7 +246,7 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
                       <Input
                         id="qualification"
                         name="qualification"
-                        defaultValue={userInfo.guide.qualification || ""}
+                        defaultValue={userInfo.guide.profile.qualification || ""}
                         required
                         disabled={isPending}
                       />
@@ -259,7 +259,7 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
                       <Input
                         id="currentWorkingPlace"
                         name="currentWorkingPlace"
-                        defaultValue={userInfo.guide.currentWorkingPlace || ""}
+                        defaultValue={userInfo.guide.profile.currentWorkingPlace || ""}
                         required
                         disabled={isPending}
                       />
@@ -270,7 +270,7 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
                       <Input
                         id="designation"
                         name="designation"
-                        defaultValue={userInfo.guide.designation || ""}
+                        defaultValue={userInfo.guide.profile.designation || ""}
                         required
                         disabled={isPending}
                       />
@@ -281,7 +281,7 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
                       <select
                         id="gender"
                         name="gender"
-                        defaultValue={userInfo.guide.gender || "MALE"}
+                        defaultValue={userInfo.guide.profile.gender || "MALE"}
                         className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                         disabled={isPending}
                       >
@@ -299,7 +299,7 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
                     <Input
                       id="address"
                       name="address"
-                      defaultValue={userInfo.tourist.address || ""}
+                      defaultValue={userInfo.tourist.profile.address || ""}
                       disabled={isPending}
                     />
                   </div>

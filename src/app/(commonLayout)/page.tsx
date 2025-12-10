@@ -1,31 +1,36 @@
-import { AIGuides } from "@/components/modules/Home/AIGuides";
-import { FeaturedCities } from "@/components/modules/Home/FeatureCities";
-import { Hero } from "@/components/modules/Home/Hero";
+import Head from "next/head";
+import { HeroSection } from "@/components/modules/Home/HeroSection";
+import { PopularDestinations } from "@/components/modules/Home/PopularDestination";
 import { HowItWorks } from "@/components/modules/Home/HowItWorks";
 import { TopGuides } from "@/components/modules/Home/TopGuides";
 import { WhyChooseUs } from "@/components/modules/Home/WhyChooseUs";
-import Head from "next/head";
+import { Testimonials } from "@/components/modules/Home/Testimonials";
+import { BecomeGuide } from "@/components/modules/Home/BecomeGuide";
+import { FeaturedExperiences } from "@/components/modules/Home/FeaturedExperience";
 
 export default function Home() {
+  
   return (
-    <>
+    <div className="min-h-screen bg-white font-sans text-gray-900">
       <Head>
-        <title>Travel Guide AI</title>
+        <title>Travel Guide</title>
         <meta
           name="description"
-          content="A modern travel guide powered by AI to personalize your adventures. Discover hidden gems, plan itineraries, and explore like a local with intelligent recommendations tailored just for you. Your ultimate travel companion. builded with Next.js, Tailwind CSS, and OpenAI."
+          content="A modern"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Hero />
-        <AIGuides/>
-        <FeaturedCities/>
-        <TopGuides/>
-        <HowItWorks/>
-        <WhyChooseUs/>
+        <HeroSection />
+        <PopularDestinations />
+        <HowItWorks />
+        <TopGuides />
+        <FeaturedExperiences />
+        <WhyChooseUs />
+        <Testimonials />
+        <BecomeGuide />
       </main>
-    </>
-  );
+    </div>
+  )
 }

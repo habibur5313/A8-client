@@ -1,26 +1,27 @@
-import { UserRole } from "@/lib/auth-utils";
+import { UserRole, UserStatus } from "@/lib/auth-utils";
 import { IAdmin } from "./admin.interface";
 import { IGuide } from "./guide.interface";
 import { ITourist } from "./tourist.interface";
 
 export interface UserInfo {
   id: string;
-  name: string;
   email: string;
-  role: UserRole;
+  password: string;
+  role: UserRole; // e.g. "SUPER_ADMIN" | "ADMIN" | "GUIDE" | "TOURIST"
   needPasswordChange: boolean;
-  status: "ACTIVE" | "BLOCKED" | "DELETED";
-  admin?: IAdmin;
-  tourist?: ITourist;
-  guide?: IGuide;
-  createdAt: string;
-  updatedAt: string;
+  status: UserStatus; // e.g. "ACTIVE" | "INACTIVE" | "SUSPENDED"
+  createdAt: string; // ISO date string
+  updatedAt: string; // ISO date string
+  superAdmin?: IAdmin | null;
+  admin?: IAdmin | null;
+  guide?: IGuide | null;
+  tourist?: ITourist | null;
   profile: {
-    name?: string;
+    id: string;
+    userId: string;
+    name: string;
+    email: string;
+    profilePhoto?: string | null;
     contactNumber?: string;
-    address?: string;
-    phone?: string;
-    avatarUrl?: string;
-    bio?: string;
   };
 }

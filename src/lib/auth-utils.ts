@@ -1,4 +1,5 @@
 export type UserRole = "SUPER_ADMIN" | "ADMIN" | "GUIDE" | "TOURIST";
+export type UserStatus = "ACTIVE" | "INACTIVE" | "SUSPENDED";
 
 // exact : ["/my-profile", "settings"]
 //   patterns: [/^\/dashboard/, /^\/tourist/], // Routes starting with /dashboard/* /tourist/*
