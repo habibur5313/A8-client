@@ -62,8 +62,10 @@ export async function resetPassword(_prevState: any, formData: FormData) {
         confirmPassword: formData.get("confirmPassword") as string,
     };
 
+
     // Validate
     const validatedPayload = zodValidator(validationPayload, resetPasswordSchema);
+
 
     if (!validatedPayload.success && validatedPayload.errors) {
         return {
@@ -87,6 +89,7 @@ export async function resetPassword(_prevState: any, formData: FormData) {
         const userRole: UserRole = verifiedToken.role;
 
         const user = await getUserInfo();
+
         // API Call
         const response = await serverFetch.post("/auth/reset-password", {
             body: JSON.stringify({
@@ -99,7 +102,12 @@ export async function resetPassword(_prevState: any, formData: FormData) {
             },
         });
 
+        console.log(response,"response")
+
         const result = await response.json();
+
+        console.log(result, "result")
+
 
         if (!result.success) {
             throw new Error(result.message || "Reset password failed");
