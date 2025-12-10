@@ -81,12 +81,12 @@ const DashboardSidebarContent = ({
       <div className="p-4 border-t border-slate-200/60">
         <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50/80">
           <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full flex items-center justify-center text-white font-semibold">
-            {userInfo.name.charAt(0).toUpperCase()}
+            {userInfo.profile.name.charAt(0).toUpperCase()}
           </div>
 
           <div className="flex-1 min-w-0">
             <p className="text-sm font-medium text-slate-800 truncate">
-              {userInfo.name}
+              {userInfo.profile.name}
             </p>
             <p className="text-xs text-slate-500 capitalize">
               {userInfo.role.toLowerCase()}

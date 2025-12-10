@@ -81,31 +81,31 @@ export const touristNavItems: NavSection[] = [
     items: [
       {
         title: "Book a Guide",
-        href: "/tourist/dashboard/book-guide",
+        href: "/dashboard/book-guide",
         icon: "Map",
         roles: ["TOURIST"],
       },
       {
         title: "My Bookings",
-        href: "/tourist/dashboard/my-bookings",
+        href: "/dashboard/my-bookings",
         icon: "CalendarRange",
         roles: ["TOURIST"],
       },
       {
         title: "Payments",
-        href: "/tourist/dashboard/payments",
+        href: "/dashboard/payments",
         icon: "CreditCard",
         roles: ["TOURIST"],
       },
       {
         title: "Reviews",
-        href: "/tourist/dashboard/reviews",
+        href: "/dashboard/reviews",
         icon: "MessageSquare",
         roles: ["TOURIST"],
       },
       {
         title: "Support",
-        href: "/tourist/dashboard/support",
+        href: "/dashboard/support",
         icon: "LifeBuoy",
         roles: ["TOURIST"],
       },

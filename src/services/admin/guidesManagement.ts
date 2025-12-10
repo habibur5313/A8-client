@@ -3,7 +3,7 @@
 
 import { serverFetch } from "@/lib/server-fetch";
 import { zodValidator } from "@/lib/zodValidator";
-import { IGuide } from "@/types/guide.interface";
+import {  IGuideProfile } from "@/types/guide.interface";
 import {
   createGuideZodSchema,
   updateGuideZodSchema,
@@ -40,7 +40,7 @@ export async function createGuide(_prevState: any, formData: FormData) {
   const guideFeeValue = formData.get("guideFee");
   const experienceValue = formData.get("experience");
 
-  const validationPayload: Partial<IGuide> = {
+  const validationPayload: Partial<IGuideProfile> = {
     name: formData.get("name") as string,
     email: formData.get("email") as string,
     password: formData.get("password") as string,
@@ -162,7 +162,7 @@ export async function updateGuide(
   const guideFeeValue = formData.get("guideFee");
   const experienceValue = formData.get("experience");
 
-  const validationPayload: Partial<IGuide> = {
+  const validationPayload: Partial<IGuideProfile> = {
     name: formData.get("name") as string,
     contactNumber: formData.get("contactNumber") as string,
     address: formData.get("address") as string,

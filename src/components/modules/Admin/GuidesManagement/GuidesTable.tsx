@@ -3,7 +3,7 @@
 import DeleteConfirmationDialog from "@/components/shared/DeleteConfirmationDialog";
 import ManagementTable from "@/components/shared/ManagementTable";
 import { softDeleteGuide } from "@/services/admin/guidesManagement";
-import { IGuide } from "@/types/guide.interface";
+import {  IGuideProfile } from "@/types/guide.interface";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { toast } from "sonner";
@@ -12,13 +12,13 @@ import GuideViewDetailDialog from "./GuideViewDetailDialog";
 
 import { guideColumns as guidesColumns } from "./GuidesColumns";
 
-const GuidesTable = ({ guides }: { guides: IGuide[] }) => {
+const GuidesTable = ({ guides }: { guides: IGuideProfile[] }) => {
   const router = useRouter();
   const [, startTransition] = useTransition();
 
-  const [viewingGuide, setViewingGuide] = useState<IGuide | null>(null);
-  const [editingGuide, setEditingGuide] = useState<IGuide | null>(null);
-  const [deletingGuide, setDeletingGuide] = useState<IGuide | null>(null);
+  const [viewingGuide, setViewingGuide] = useState<IGuideProfile | null>(null);
+  const [editingGuide, setEditingGuide] = useState<IGuideProfile | null>(null);
+  const [deletingGuide, setDeletingGuide] = useState<IGuideProfile | null>(null);
 
   const [isDeleting, setIsDeleting] = useState(false);
 

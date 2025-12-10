@@ -3,7 +3,7 @@
 import DeleteConfirmationDialog from "@/components/shared/DeleteConfirmationDialog";
 import ManagementTable from "@/components/shared/ManagementTable";
 import { softDeleteAdmin } from "@/services/admin/adminsManagement";
-import { IAdmin } from "@/types/admin.interface";
+import { IAdminProfile } from "@/types/admin.interface";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { toast } from "sonner";
@@ -12,15 +12,15 @@ import { adminsColumns } from "./adminsColumn";
 import AdminViewDetailDialog from "./AdminViewDetailDialog";
 
 interface AdminsTableProps {
-  admins: IAdmin[];
+  admins: IAdminProfile[];
 }
 
 const AdminsTable = ({ admins }: AdminsTableProps) => {
   const router = useRouter();
   const [, startTransition] = useTransition();
-  const [deletingAdmin, setDeletingAdmin] = useState<IAdmin | null>(null);
-  const [viewingAdmin, setViewingAdmin] = useState<IAdmin | null>(null);
-  const [editingAdmin, setEditingAdmin] = useState<IAdmin | null>(null);
+  const [deletingAdmin, setDeletingAdmin] = useState<IAdminProfile | null>(null);
+  const [viewingAdmin, setViewingAdmin] = useState<IAdminProfile | null>(null);
+  const [editingAdmin, setEditingAdmin] = useState<IAdminProfile | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
 
   const handleRefresh = () => {
@@ -29,15 +29,15 @@ const AdminsTable = ({ admins }: AdminsTableProps) => {
     });
   };
 
-  const handleView = (admin: IAdmin) => {
+  const handleView = (admin: IAdminProfile) => {
     setViewingAdmin(admin);
   };
 
-  const handleEdit = (admin: IAdmin) => {
+  const handleEdit = (admin: IAdminProfile) => {
     setEditingAdmin(admin);
   };
 
-  const handleDelete = (admin: IAdmin) => {
+  const handleDelete = (admin: IAdminProfile) => {
     setDeletingAdmin(admin);
   };
 

@@ -65,12 +65,12 @@ export default function GuideFormDialog({
   // preview file
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(
-    () => (guide as any)?.profilePhoto ?? null
+    () => (guide as any)?.profile?.profilePhoto ?? null
   );
 
   // gender local state (keeps Select controlled)
   const [gender, setGender] = useState<Gender>(
-    (guide?.gender as Gender) ?? "MALE"
+    (guide?.profile?.gender as Gender) ?? "MALE"
   );
 
   // useActionState: bind updateGuide to id when editing
@@ -93,8 +93,8 @@ export default function GuideFormDialog({
     setLanguageInput("");
     setSkillInput("");
     setSelectedFile(null);
-    setPreviewUrl((guide as any)?.profilePhoto ?? null);
-    setGender((guide?.gender as Gender) ?? "MALE");
+    setPreviewUrl((guide as any)?.profile?.profilePhoto ?? null);
+    setGender((guide?.profile?.gender as Gender) ?? "MALE");
     if (fileRef.current) fileRef.current.value = "";
   }, [open, guide]);
 
@@ -148,7 +148,7 @@ export default function GuideFormDialog({
     setSkillInput("");
     setSelectedFile(null);
     setPreviewUrl(null);
-    setGender((guide?.gender as Gender) ?? "MALE");
+    setGender((guide?.profile?.gender as Gender) ?? "MALE");
 
     if (fileRef.current) fileRef.current.value = "";
     onClose();
@@ -232,7 +232,7 @@ export default function GuideFormDialog({
                 <Input
                   id="contactNumber"
                   name="contactNumber"
-                  defaultValue={guide?.contactNumber ?? ""}
+                  defaultValue={guide?.profile?.contactNumber ?? ""}
                   placeholder="017xxxxxxxx"
                 />
                 <InputFieldError state={state} field="contactNumber" />
@@ -265,7 +265,7 @@ export default function GuideFormDialog({
                 <Input
                   id="address"
                   name="address"
-                  defaultValue={guide?.address ?? ""}
+                  defaultValue={guide?.profile?.address ?? ""}
                   placeholder="House 12, Road 8, Sylhet"
                 />
                 <InputFieldError state={state} field="address" />
@@ -292,7 +292,7 @@ export default function GuideFormDialog({
                 <Input
                   id="registrationNumber"
                   name="registrationNumber"
-                  defaultValue={guide?.registrationNumber ?? ""}
+                  defaultValue={guide?.profile?.registrationNumber ?? ""}
                   placeholder="REG-20225-0013ew"
                 />
                 <InputFieldError state={state} field="registrationNumber" />
@@ -303,7 +303,7 @@ export default function GuideFormDialog({
                 <Input
                   id="experience"
                   name="experience"
-                  defaultValue={String(guide?.experience ?? 0)}
+                  defaultValue={String(guide?.profile?.experience ?? 0)}
                   type="number"
                   min={0}
                 />
@@ -330,7 +330,7 @@ export default function GuideFormDialog({
                 <Input
                   id="qualification"
                   name="qualification"
-                  defaultValue={guide?.qualification ?? ""}
+                  defaultValue={guide?.profile?.qualification ?? ""}
                 />
                 <InputFieldError state={state} field="qualification" />
               </Field>
@@ -344,7 +344,7 @@ export default function GuideFormDialog({
               <Input
                 id="currentWorkingPlace"
                 name="currentWorkingPlace"
-                defaultValue={guide?.currentWorkingPlace ?? ""}
+                defaultValue={guide?.profile?.currentWorkingPlace ?? ""}
                 placeholder="Sylhet Local Tourism Center"
               />
               <InputFieldError state={state} field="currentWorkingPlace" />

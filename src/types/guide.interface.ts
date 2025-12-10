@@ -3,6 +3,7 @@ export interface IGuideProfile {
   userId: string;
   name: string;
   email: string;
+  password?: string;
   profilePhoto: string | null;
   contactNumber: string;
   gender: "MALE" | "FEMALE" | "OTHER";

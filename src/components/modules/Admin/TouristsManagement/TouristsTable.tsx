@@ -3,7 +3,7 @@
 import DeleteConfirmationDialog from "@/components/shared/DeleteConfirmationDialog";
 import ManagementTable from "@/components/shared/ManagementTable";
 import { softDeleteTourist } from "@/services/admin/touristsManagement";
-import { ITourist } from "@/types/tourist.interface";
+import { ITouristProfile } from "@/types/tourist.interface";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { toast } from "sonner";
@@ -12,16 +12,17 @@ import { touristsColumns } from "./TouristsColumns";
 import TouristViewDetailDialog from "./TouristViewDetailDialog";
 
 interface TouristsTableProps {
-  tourists: ITourist[];
+  tourists: ITouristProfile[];
 }
 
 const TouristsTable = ({ tourists }: TouristsTableProps) => {
   const router = useRouter();
   const [, startTransition] = useTransition();
-  const [deletingTourist, setDeletingTourist] = useState<ITourist | null>(null);
-  const [viewingTourist, setViewingTourist] = useState<ITourist | null>(null);
-  const [editingTourist, setEditingTourist] = useState<ITourist | null>(null);
+  const [deletingTourist, setDeletingTourist] = useState<ITouristProfile | null>(null);
+  const [viewingTourist, setViewingTourist] = useState<ITouristProfile | null>(null);
+  const [editingTourist, setEditingTourist] = useState<ITouristProfile | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
+
 
   const handleRefresh = () => {
     startTransition(() => {
@@ -29,9 +30,9 @@ const TouristsTable = ({ tourists }: TouristsTableProps) => {
     });
   };
 
-  const handleView = (tourist: ITourist) => setViewingTourist(tourist);
-  const handleEdit = (tourist: ITourist) => setEditingTourist(tourist);
-  const handleDelete = (tourist: ITourist) => setDeletingTourist(tourist);
+  const handleView = (tourist: ITouristProfile) => setViewingTourist(tourist);
+  const handleEdit = (tourist: ITouristProfile) => setEditingTourist(tourist);
+  const handleDelete = (tourist: ITouristProfile) => setDeletingTourist(tourist);
 
   const confirmDelete = async () => {
     if (!deletingTourist) return;

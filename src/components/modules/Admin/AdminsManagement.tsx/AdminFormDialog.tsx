@@ -9,7 +9,7 @@ import {
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { createAdmin, updateAdmin } from "@/services/admin/adminsManagement";
-import { IAdmin } from "@/types/admin.interface";
+import {  IAdminProfile } from "@/types/admin.interface";
 import Image from "next/image";
 import { useActionState, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
@@ -18,7 +18,7 @@ interface IAdminFormDialogProps {
   open: boolean;
   onClose: () => void;
   onSuccess: () => void;
-  admin?: IAdmin;
+  admin?: IAdminProfile;
 }
 
 const AdminFormDialog = ({

@@ -9,13 +9,13 @@ import {
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import { formatDateTime, getInitials } from "@/lib/formatters";
-import { ITourist } from "@/types/tourist.interface";
+import { ITouristProfile } from "@/types/tourist.interface";
 import { Calendar, Mail, MapPin, Phone, User } from "lucide-react";
 
 interface ITouristViewDialogProps {
   open: boolean;
   onClose: () => void;
-  tourist: ITourist | null;
+  tourist: ITouristProfile | null;
 }
 
 const TouristViewDetailDialog = ({

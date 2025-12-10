@@ -4,16 +4,16 @@ import { DateCell } from "@/components/shared/cell/DateCell";
 import { StatusBadgeCell } from "@/components/shared/cell/StatusBadgeCell";
 import { UserInfoCell } from "@/components/shared/cell/UserInfoCell";
 import { Column } from "@/components/shared/ManagementTable";
-import { ITourist } from "@/types/tourist.interface";
+import {  ITouristProfile } from "@/types/tourist.interface";
 
-export const touristsColumns: Column<ITourist>[] = [
+export const touristsColumns: Column<ITouristProfile>[] = [
   {
     header: "Tourist",
     accessor: (tourist) => (
       <UserInfoCell
         name={tourist.name}
         email={tourist.email}
-        photo={tourist.profilePhoto}
+        photo={tourist?.profilePhoto}
       />
     ),
     sortKey: "name",
@@ -44,7 +44,7 @@ export const touristsColumns: Column<ITourist>[] = [
   },
   {
     header: "Joined",
-    accessor: (tourist) => <DateCell date={tourist.createdAt} />,
+    accessor: (tourist) => <DateCell date={tourist?.createdAt} />,
     sortKey: "createdAt",
   },
 ];

@@ -4,16 +4,16 @@ import { DateCell } from "@/components/shared/cell/DateCell";
 import { StatusBadgeCell } from "@/components/shared/cell/StatusBadgeCell";
 import { UserInfoCell } from "@/components/shared/cell/UserInfoCell";
 import { Column } from "@/components/shared/ManagementTable";
-import { IGuide } from "@/types/guide.interface";
+import {  IGuideProfile } from "@/types/guide.interface";
 
-export const guideColumns: Column<IGuide>[] = [
+export const guideColumns: Column<IGuideProfile>[] = [
   {
     header: "Guide",
     accessor: (guide) => (
       <UserInfoCell
         name={guide.name}
         email={guide.email}
-        photo={guide.profilePhoto}
+        photo={guide?.profilePhoto}
       />
     ),
     sortKey: "name",
@@ -70,7 +70,7 @@ export const guideColumns: Column<IGuide>[] = [
     accessor: (guide) => (
       <div className="flex flex-wrap gap-1">
         {guide.skills?.length > 0 ? (
-          guide.skills.map((skill) => (
+          guide.skills?.map((skill) => (
             <span
               key={skill}
               className="text-xs px-2 py-0.5 bg-muted rounded-md border"

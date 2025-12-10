@@ -11,7 +11,7 @@ import {
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { updateTourist } from "@/services/admin/touristsManagement";
-import { ITourist } from "@/types/tourist.interface";
+import {  ITouristProfile } from "@/types/tourist.interface";
 import { useActionState, useEffect, useRef } from "react";
 import { toast } from "sonner";
 
@@ -19,7 +19,7 @@ interface ITouristFormDialogProps {
   open: boolean;
   onClose: () => void;
   onSuccess: () => void;
-  tourist?: ITourist;
+  tourist?: ITouristProfile;
 }
 
 const TouristFormDialog = ({

@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import { formatDateTime, getInitials } from "@/lib/formatters";
-import { IGuide } from "@/types/guide.interface";
+import {  IGuideProfile } from "@/types/guide.interface";
 import {
   Briefcase,
   Calendar,
@@ -26,7 +26,7 @@ import {
 interface IGuideViewDialogProps {
   open: boolean;
   onClose: () => void;
-  guide: IGuide | null;
+  guide: IGuideProfile | null;
 }
 
 const GuideViewDetailDialog = ({ open, onClose, guide }: IGuideViewDialogProps) => {

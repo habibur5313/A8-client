@@ -9,13 +9,13 @@ import {
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import { formatDateTime, getInitials } from "@/lib/formatters";
-import { IAdmin } from "@/types/admin.interface";
+import {  IAdminProfile } from "@/types/admin.interface";
 import { Calendar, Mail, Phone, Shield, User } from "lucide-react";
 
 interface IAdminViewDialogProps {
   open: boolean;
   onClose: () => void;
-  admin: IAdmin | null;
+  admin: IAdminProfile | null;
 }
 
 const AdminViewDetailDialog = ({

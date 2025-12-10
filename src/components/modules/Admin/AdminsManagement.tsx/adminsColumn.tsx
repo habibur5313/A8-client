@@ -4,16 +4,16 @@ import { DateCell } from "@/components/shared/cell/DateCell";
 import { StatusBadgeCell } from "@/components/shared/cell/StatusBadgeCell";
 import { UserInfoCell } from "@/components/shared/cell/UserInfoCell";
 import { Column } from "@/components/shared/ManagementTable";
-import { IAdmin } from "@/types/admin.interface";
+import {  IAdminProfile } from "@/types/admin.interface";
 
-export const adminsColumns: Column<IAdmin>[] = [
+export const adminsColumns: Column<IAdminProfile>[] = [
   {
     header: "Admin",
     accessor: (admin) => (
       <UserInfoCell
         name={admin.name}
         email={admin.email}
-        photo={admin.profilePhoto}
+        photo={admin?.profilePhoto}
       />
     ),
     sortKey: "name",
