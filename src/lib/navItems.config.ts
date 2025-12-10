@@ -44,12 +44,6 @@ export const guideNavItems: NavSection[] = [
     title: "Guide Panel",
     items: [
       {
-        title: "My Schedules",
-        href: "/guide/dashboard/my-schedules",
-        icon: "Clock",
-        roles: ["GUIDE"],
-      },
-      {
         title: "Tour Requests",
         href: "/guide/dashboard/tour-requests",
         icon: "ListChecks",
