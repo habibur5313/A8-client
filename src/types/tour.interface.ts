@@ -26,9 +26,9 @@ export interface ITour {
   description?: string;
   maxGroupSize?: number;
   language?: string[];
-  isDeleted: boolean;
-  createdAt: string;
-  updatedAt: string;
+  isDeleted?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
 }
 export interface IItineraryStep {
   time: string;

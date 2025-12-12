@@ -7,7 +7,7 @@ import { queryStringFormatter } from "@/lib/formatters";
 import { getListings } from "@/services/guide/tourManagement";
 import { Suspense } from "react";
 
-const AdminTourManagementPage = async ({
+const TourManagementPage = async ({
   searchParams,
 }: {
   searchParams: Promise<Record<string, string | string[]>>;
@@ -36,4 +36,4 @@ const AdminTourManagementPage = async ({
   );
 };
 
-export default AdminTourManagementPage;
+export default TourManagementPage;

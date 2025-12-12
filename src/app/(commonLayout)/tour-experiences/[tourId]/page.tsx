@@ -30,7 +30,7 @@ const TOUR_DETAILS: ITour = {
   },
   location: "Kyoto, Japan",
   maxGroupSize: 8,
-  languages: ["English", "Japanese"],
+  language: ["English", "Japanese"],
   description:
     "Step back in time as we explore the preserved districts of Higashiyama and Gion. We'll visit secret temples away from the crowds, walk through bamboo groves, and end with a traditional tea ceremony in a private garden. This tour is designed for those who want to understand the deep spiritual and cultural roots of Kyoto.",
 };
@@ -157,7 +157,7 @@ export default function TourDetails({ tourId }: { tourId: string }) {
                   Languages
                 </span>
                 <span className="font-medium text-gray-900">
-                  {TOUR_DETAILS.languages?.join(", ")}
+                  {TOUR_DETAILS.language?.join(", ")}
                 </span>
               </div>
             </div>

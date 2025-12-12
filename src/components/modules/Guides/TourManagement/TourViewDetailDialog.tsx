@@ -102,8 +102,8 @@ const TourViewDetailDialog = ({ open, onClose, tour }: ITourViewDialogProps) => 
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-muted/50 p-4 rounded-lg">
-                <InfoRow label="Created At" value={formatDateTime(tour.createdAt)} />
-                <InfoRow label="Last Updated" value={formatDateTime(tour.updatedAt)} />
+                <InfoRow label="Created At" value={formatDateTime(tour?.createdAt ? tour.createdAt : "")} />
+                <InfoRow label="Last Updated" value={formatDateTime(tour?.updatedAt ? tour?.updatedAt : "")} />
               </div>
             </div>
           </div>
