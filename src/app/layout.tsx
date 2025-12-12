@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Travel Guide AI",
+  title: "Travel Guide",
   description: "A modern travel guide powered by AI to personalize your adventures. Discover hidden gems, plan itineraries, and explore like a local with intelligent recommendations tailored just for you. Your ultimate travel companion. builded with Next.js, Tailwind CSS, and OpenAI.",
 };
 
