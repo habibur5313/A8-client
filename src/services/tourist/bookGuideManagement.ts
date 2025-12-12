@@ -15,8 +15,8 @@ export async function createBooking(_prevState: any, formData: FormData) {
     bookingDate: formData.get("bookingDate") as string,
   };
 
-  const validated = zodValidator(payload, BookingValidation.createBookingZodSchema);
 
+  const validated = zodValidator(payload, BookingValidation.createBookingZodSchema);
   if (!validated.success || !validated.data) {
     return {
       success: false,
@@ -28,9 +28,11 @@ export async function createBooking(_prevState: any, formData: FormData) {
 
   const backendPayload = validated.data;
 
+  console.log(JSON.stringify({ body: backendPayload }))
+
   try {
     const response = await serverFetch.post("/booking", {
-      body: JSON.stringify({ body: backendPayload }),
+      body: JSON.stringify( backendPayload ),
       headers: { "Content-Type": "application/json" },
     });
 

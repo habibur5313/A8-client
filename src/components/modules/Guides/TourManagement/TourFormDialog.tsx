@@ -49,7 +49,6 @@ export default function TourFormDialog({
   const [languageInput, setLanguageInput] = useState("");
   const [category, setCategory] = useState(tour?.category ?? "");
 
-  console.log(category)
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(

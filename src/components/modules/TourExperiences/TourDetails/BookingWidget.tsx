@@ -7,11 +7,23 @@ import { useState } from 'react';
 interface BookingWidgetProps {
   price: number;
   priceLabel?: string;
-  onBooking?: (date: string) => void;
+  onBooking?: (date: string) => void; // will receive ISO string
 }
 
 export function BookingWidget({ price, priceLabel = '/ person', onBooking }: BookingWidgetProps) {
   const [date, setDate] = useState('');
+
+  // Convert normal date (YYYY-MM-DD) → ISO datetime string
+  const convertToISO = (d: string) => {
+    if (!d) return '';
+    const iso = new Date(d).toISOString(); // auto converts to ISO with timezone
+    return iso;
+  };
+
+  const handleBooking = () => {
+    const isoDate = convertToISO(date);
+    onBooking && onBooking(isoDate);
+  };
 
   return (
     <Card className="p-6 sticky top-24 shadow-xl border-blue-100">
@@ -36,10 +48,11 @@ export function BookingWidget({ price, priceLabel = '/ person', onBooking }: Boo
       <Button
         size="lg"
         className="w-full text-base font-bold shadow-lg shadow-blue-200"
-        onClick={() => onBooking && onBooking(date)}
+        onClick={handleBooking}
       >
         Request to Book
       </Button>
+
       <p className="text-center text-xs text-gray-500 mt-4">You won’t be charged yet</p>
     </Card>
   );

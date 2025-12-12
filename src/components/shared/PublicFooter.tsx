@@ -14,12 +14,14 @@ export function PublicFooter() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
-                <MapPin className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-white">TravelAI</span>
+            <div className="flex items-center gap-2">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-700 to-blue-400 rounded-2xl flex items-center justify-center">
+              <MapPin className="w-6 h-6 text-white" />
             </div>
+            <span className="text-xl font-bold bg-gradient-to-r from-blue-700 to-blue-400 bg-clip-text text-transparent">
+              TravelGuide
+            </span>
+          </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Discover the world with AI-powered travel guides. Personalized itineraries for every adventure.
             </p>

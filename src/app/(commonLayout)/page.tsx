@@ -7,6 +7,7 @@ import { WhyChooseUs } from "@/components/modules/Home/WhyChooseUs";
 import { Testimonials } from "@/components/modules/Home/Testimonials";
 import { BecomeGuide } from "@/components/modules/Home/BecomeGuide";
 import { FeaturedExperiences } from "@/components/modules/Home/FeaturedExperience";
+import { ContactSection } from "@/components/modules/Home/ContactSection";
 
 export default function Home() {
   
@@ -30,6 +31,7 @@ export default function Home() {
         <WhyChooseUs />
         <Testimonials />
         <BecomeGuide />
+        <ContactSection/>
       </main>
     </div>
   )

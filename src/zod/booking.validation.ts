@@ -5,7 +5,6 @@ import { z } from "zod";
 // CREATE BOOKING VALIDATION
 // ===============================
 export const createBookingZodSchema = z.object({
-  body: z.object({
     listingId: z.string({
      error: "Listing ID is required",
     }),
@@ -14,8 +13,7 @@ export const createBookingZodSchema = z.object({
         error: "Booking date is required",
       })
       .datetime("Invalid datetime format, expected ISO string"),
-  }),
-});
+  });
 
 // ===============================
 // UPDATE BOOKING STATUS VALIDATION

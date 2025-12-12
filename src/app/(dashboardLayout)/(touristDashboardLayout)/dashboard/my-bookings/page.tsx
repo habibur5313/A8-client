@@ -21,7 +21,6 @@ const MyBookingPage = async ({
     (bookingsResult?.meta?.total || 1) / (bookingsResult?.meta?.limit || 1)
   );
 
-  console.log(bookingsResult)
 
   return (
     <div className="space-y-6">

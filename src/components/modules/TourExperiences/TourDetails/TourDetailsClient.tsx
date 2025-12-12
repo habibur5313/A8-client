@@ -3,13 +3,18 @@
 import { Clock, Users, Globe, MapPin, Share2, Heart } from 'lucide-react';
 import { BookingWidget } from './BookingWidget';
 import { ReviewCard } from './ReviewCard';
-import { Avatar } from '@/components/ui/Avatar2';
 import { Badge } from '@/components/ui/badge';
 import { ImageSlider } from '@/components/ui/ImageSlider';
 import { Rating } from '@/components/ui/Rating';
 import { createBooking } from '@/services/tourist/bookGuideManagement';
+import {  Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { getInitials } from '@/lib/formatters';
+import { toast } from 'sonner';
+import { useRouter } from 'next/navigation';
 
 export default function TourDetailsClient({ tour }: any) {
+
+  const router = useRouter()
 
   const handleBooking = async (date: string) => {
     if (!date) {
@@ -22,7 +27,11 @@ export default function TourDetailsClient({ tour }: any) {
     formData.append('bookingDate', date);
 
     const result = await createBooking(null, formData);
-    if (result.success) alert('Booking successful!');
+    if (result.success) {
+      toast.success("booking successfully")
+      router.push("/payment")
+
+    }
     else alert('Booking failed: ' + result.message);
   };
 
@@ -59,7 +68,7 @@ export default function TourDetailsClient({ tour }: any) {
 
         {/* Image Slider */}
         <div className="h-[400px] md:h-[500px] mb-8">
-          <ImageSlider images={tour?.images || []} className="h-full w-full" />
+          <ImageSlider images={Array.isArray(tour?.image) ? tour.image : [tour?.image]} className="h-full w-full" />
         </div>
 
         <div className="flex flex-col lg:flex-row gap-12">
@@ -93,7 +102,19 @@ export default function TourDetailsClient({ tour }: any) {
             {/* Guide info */}
             <section className="bg-blue-50 p-6 rounded-2xl">
               <div className="flex items-center gap-4 mb-4">
-                <Avatar src={tour?.guide?.profilePhoto || ''} alt={tour?.guide?.name || ''} size="lg" />
+                {/* <Avatar src={tour?.guide?.profilePhoto || ''} alt={tour?.guide?.name || ''} size="lg" /> */}
+                <Avatar className="h-32 w-32">
+                  { tour?.guide?.profilePhoto ? (
+                    <AvatarImage
+                      src={ (tour?.guide?.profilePhoto as string)}
+                      alt={tour?.guide?.name || "Unknown user"}
+                    />
+                  ) : (
+                    <AvatarFallback className="text-3xl">
+                      {getInitials(tour?.guide?.name || "Unknown user")}
+                    </AvatarFallback>
+                  )}
+                </Avatar>
                 <div>
                   <h3 className="font-bold text-gray-900 text-lg">Guided by {tour?.guide?.name}</h3>
                   <p className="text-blue-600 text-sm font-medium">Certified Local Guide</p>

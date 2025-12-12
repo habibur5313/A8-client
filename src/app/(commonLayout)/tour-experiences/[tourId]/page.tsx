@@ -1,5 +1,7 @@
-import TourDetailsClient from '@/components/modules/TourExperiences/TourDetails/TourDetailsClient';
-import { getListingById } from '@/services/guide/tourManagement';
+import TourDetailsClient from "@/components/modules/TourExperiences/TourDetails/TourDetailsClient";
+import { getUserInfo } from "@/services/auth/getUserInfo";
+import { getListingById } from "@/services/guide/tourManagement";
+import { redirect } from "next/navigation";
 
 interface PageProps {
   params: { tourId: string };
@@ -7,6 +9,13 @@ interface PageProps {
 
 export default async function TourDetailsPage({ params }: PageProps) {
   const { tourId } = await params;
+
+  const userinfo = await getUserInfo();
+
+  // If user not logged in → redirect to login with callback
+  if (!userinfo.id) {
+    redirect(`/login`);
+  }
 
   // Fetch tour data from server
   const tourResult = await getListingById(tourId);

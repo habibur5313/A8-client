@@ -37,7 +37,6 @@ export default function MyReviewsPage() {
   const [reviews, setReviews] = useState<Review[]>(MOCK_REVIEWS)
   const handleEdit = (id: string) => {
     // In a real app, this would open a modal or navigate to an edit page
-    console.log('Edit review:', id)
     alert(`Edit functionality would open for review ${id}`)
   }
   const handleDelete = (id: string) => {

@@ -103,7 +103,6 @@ export async function createGuide(_prevState: any, formData: FormData) {
     newFormData.append("file", formData.get("file") as Blob);
   }
 
-  console.log(newFormData);
   try {
     const response = await serverFetch.post("/user/create-guide", {
       body: newFormData,
