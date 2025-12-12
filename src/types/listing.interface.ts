@@ -1,3 +1,4 @@
+import { IGuideProfile } from "./guide.interface";
 
 export type ListingCategory =
   | "Food"
@@ -15,6 +16,7 @@ export interface IListing {
   image?: string;
   images?: string[];
   guideId: string;
+  guide: IGuideProfile;
   category?: ListingCategory;
   isDeleted: boolean;
   createdAt: string;

@@ -48,6 +48,16 @@ export async function createBooking(_prevState: any, formData: FormData) {
 // ===============================
 // GET ALL BOOKINGS
 // ===============================
+export async function getMyBookings(queryString?: string) {
+  try {
+    const response = await serverFetch.get(`/booking?touristId=d99f9b96-bec5-45be-80a4-bad1089e9293${queryString ? `?${queryString}` : ""}`);
+    return await response.json();
+  } catch (error: any) {
+    console.error(error);
+    return { success: false, message: "Something went wrong" };
+  }
+}
+
 export async function getBookings(queryString?: string) {
   try {
     const response = await serverFetch.get(`/booking${queryString ? `?${queryString}` : ""}`);

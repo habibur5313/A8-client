@@ -1,6 +1,7 @@
 // Booking interfaces for frontend/server-side validation
 
 import { IGuideProfile } from "./guide.interface";
+import { IListing } from "./listing.interface";
 import { ITouristProfile } from "./tourist.interface";
 
 // Booking status enum
@@ -51,4 +52,5 @@ export interface IBooking {
   isDeleted: boolean;
   guide: IGuideProfile;
   tourist: ITouristProfile
+  listing: IListing
 }

@@ -6,12 +6,12 @@ import { IBooking } from "@/types/booking.interface";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { toast } from "sonner";
+import { bookingColumns } from "./MyBookingsColumns";
+import MyBookingViewDetailDialog from "./MyBookingViewDetailDialog";
 import { softDeleteBooking } from "@/services/tourist/bookGuideManagement";
-import { bookingColumns } from "./BookGuidesColumns";
-import BookGuideViewDetailDialog from "./BookGuideViewDetailDialog";
 
 
-const BookGuidesTable = ({ bookings }: { bookings: IBooking[] }) => {
+const MyBookingsTable = ({ bookings }: { bookings: IBooking[] }) => {
   const router = useRouter();
   const [, startTransition] = useTransition();
 
@@ -49,6 +49,7 @@ const BookGuidesTable = ({ bookings }: { bookings: IBooking[] }) => {
     }
   };
 
+
   return (
     <>
       {/* ===============================
@@ -66,7 +67,7 @@ const BookGuidesTable = ({ bookings }: { bookings: IBooking[] }) => {
       {/* ===============================
           VIEW BOOKING DETAILS
       =============================== */}
-      <BookGuideViewDetailDialog
+      <MyBookingViewDetailDialog
         open={!!viewingBooking}
         booking={viewingBooking}
         onClose={() => setViewingBooking(null)}
@@ -87,4 +88,4 @@ const BookGuidesTable = ({ bookings }: { bookings: IBooking[] }) => {
   );
 };
 
-export default BookGuidesTable;
+export default MyBookingsTable;

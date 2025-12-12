@@ -5,7 +5,7 @@ import RefreshButton from "@/components/shared/RefreshButton";
 import SearchFilter from "@/components/shared/SearchFilter";
 import SelectFilter from "@/components/shared/SelectFilter";
 
-const BookGuideFilters = () => {
+const MyBookingFilters = () => {
   return (
     <div className="space-y-3">
       {/* Top row: search + refresh */}
@@ -50,4 +50,4 @@ const BookGuideFilters = () => {
   );
 };
 
-export default BookGuideFilters;
+export default MyBookingFilters;

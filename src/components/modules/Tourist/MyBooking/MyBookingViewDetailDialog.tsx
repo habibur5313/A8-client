@@ -20,7 +20,7 @@ interface IBookingViewDialogProps {
   booking: IBooking | null;
 }
 
-const BookGuideViewDetailDialog = ({
+const MyBookingViewDetailDialog = ({
   open,
   onClose,
   booking,
@@ -134,4 +134,4 @@ const BookGuideViewDetailDialog = ({
   );
 };
 
-export default BookGuideViewDetailDialog;
+export default MyBookingViewDetailDialog;
