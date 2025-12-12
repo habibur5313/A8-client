@@ -1,24 +1,17 @@
-const BookGuidePage = async ({
+import BookGuideClient from "@/components/modules/Tourist/BookGuide/BookGuideClient";
+import { queryStringFormatter } from "@/lib/formatters";
+import { getGuides } from "@/services/admin/guidesManagement";
+
+
+export default async function BookGuidePage({
   searchParams,
 }: {
   searchParams: Promise<Record<string, string | string[]>>;
-}) => {
+}) {
   const searchParamsObj = await searchParams;
-  // const queryString = queryStringFormatter(searchParamsObj);
+  const queryString = queryStringFormatter(searchParamsObj);
+  const guideRes = await getGuides(queryString);
+  const guides = guideRes?.data || [];
 
-  // // const bookingsResult = await getBookings(queryString);
-
-  // // const totalPages = Math.ceil(
-  // //   (bookingsResult?.meta?.total || 1) / (bookingsResult?.meta?.limit || 1)
-  // // );
-
-  // console.log(bookingsResult)
-
-  return (
-    <div className="space-y-6">
-   <h1>hello</h1>
-    </div>
-  );
-};
-
-export default BookGuidePage;
+  return <BookGuideClient guides={guides} />;
+}

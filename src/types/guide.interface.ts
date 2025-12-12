@@ -1,3 +1,5 @@
+import { IReview } from "./tour.interface";
+
 export interface IGuideProfile {
   id: string;
   userId: string;
@@ -20,11 +22,13 @@ export interface IGuideProfile {
   designation: string;
   averageRating: number;
   totalReviews: number;
+  reviews?: IReview[]
   isAvailable: boolean;
   isDeleted: boolean;
   isVerified: boolean;
   createdAt: string; // ISO date string
   updatedAt: string; // ISO date string
+
 }
 
 export interface IGuide {
