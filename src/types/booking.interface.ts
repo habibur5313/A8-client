@@ -21,6 +21,7 @@ export enum PaymentStatus {
 // Payload for creating a booking
 export interface IBookingCreate {
   listingId: string;
+  guideId: string;
   bookingDate: string; // ISO string format
 }
 
@@ -44,6 +45,7 @@ export interface IBooking {
   id: string;
   touristId: string;
   listingId: string;
+  guideId: string;
   bookingDate: string;
   status: BookingStatus;
   paymentStatus: PaymentStatus;

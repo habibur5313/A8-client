@@ -24,6 +24,7 @@ export default function TourDetailsClient({ tour }: any) {
 
     const formData = new FormData();
     formData.append('listingId', tour.id);
+    formData.append('guideId', tour.guideId);
     formData.append('bookingDate', date);
 
     const result = await createBooking(null, formData);

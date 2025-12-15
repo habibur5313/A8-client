@@ -12,6 +12,7 @@ import { BookingValidation } from "@/zod/booking.validation";
 export async function createBooking(_prevState: any, formData: FormData) {
   const payload: Partial<IBookingCreate> = {
     listingId: formData.get("listingId") as string,
+    guideId: formData.get("guideId") as string,
     bookingDate: formData.get("bookingDate") as string,
   };
 
@@ -50,9 +51,9 @@ export async function createBooking(_prevState: any, formData: FormData) {
 // ===============================
 // GET ALL BOOKINGS
 // ===============================
-export async function getMyBookings(queryString?: string) {
+export async function getMyBookings(touristId: string) {
   try {
-    const response = await serverFetch.get(`/booking?touristId=d99f9b96-bec5-45be-80a4-bad1089e9293${queryString ? `?${queryString}` : ""}`);
+    const response = await serverFetch.get(`/booking?touristId=${touristId}`);
     return await response.json();
   } catch (error: any) {
     console.error(error);

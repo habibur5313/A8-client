@@ -7,6 +7,9 @@ import { z } from "zod";
 export const createBookingZodSchema = z.object({
     listingId: z.string({
      error: "Listing ID is required",
+    }).optional(),
+    guideId: z.string({
+      error: "guide id is required"
     }),
     bookingDate: z
       .string({
