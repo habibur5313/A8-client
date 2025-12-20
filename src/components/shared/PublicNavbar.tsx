@@ -38,7 +38,7 @@ export function PublicNavbar({accessToken}: {accessToken?: string | null}) {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-2 lg:gap-5 xl:gap-8">
             <Link
               href="/"
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
@@ -84,7 +84,7 @@ export function PublicNavbar({accessToken}: {accessToken?: string | null}) {
 
           {/* Mobile Toggle Button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-black"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X /> : <Menu />}
@@ -94,29 +94,29 @@ export function PublicNavbar({accessToken}: {accessToken?: string | null}) {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100">
+        <div className="md:hidden bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700">
           <div className="px-4 py-4 flex flex-col space-y-3">
             <Link
               href="/"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-gray-700 dark:text-gray-200 hover:text-blue-600 font-medium transition-colors"
             >
               Home
             </Link>
             <Link
               href="/tour-experiences"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-gray-700 dark:text-gray-200 hover:text-blue-600 font-medium transition-colors"
             >
               Tours & Experiences
             </Link>
             <Link
               href="/about-contact"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-gray-700 dark:text-gray-200 hover:text-blue-600 font-medium transition-colors"
             >
               About & Contact
             </Link>
             <Link
               href="/dashboard"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-gray-700 dark:text-gray-200 hover:text-blue-600 font-medium transition-colors"
             >
               Dashboard
             </Link>
