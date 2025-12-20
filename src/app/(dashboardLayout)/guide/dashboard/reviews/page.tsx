@@ -102,15 +102,15 @@ export default function GuideReviewsPage() {
     '3+': MOCK_REVIEWS.filter(r => r.rating >= 3).length,
   }), []);
   return (
-    <div className="min-h-screen bg-gray-50 font-sans text-gray-900">
+    <div className="min-h-screen  font-sans text-gray-900 dark:text-gray-100">
       {/* Header Section */}
-      <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <h1 className="text-2xl font-bold text-gray-900">Guide Reviews</h1>
-          <p className="text-gray-500 mt-1">See what travelers are saying about their experiences</p>
+      <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+        <div className=" px-4 sm:px-6 lg:px-8 py-6">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Guide Reviews</h1>
+          <p className="text-gray-500 dark:text-gray-400 mt-1">See what travelers are saying about their experiences</p>
         </div>
       </header>
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className=" px-4 sm:px-6 lg:px-8 py-8">
         {/* Rating Summary Dashboard */}
         <section aria-label="Rating Summary">
           <RatingSummary reviews={MOCK_REVIEWS} />
@@ -118,7 +118,7 @@ export default function GuideReviewsPage() {
         {/* Filters and List */}
         <section aria-label="Reviews List">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
-            <h2 className="text-xl font-bold text-gray-800 mb-4 sm:mb-0">
+            <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 sm:mb-0">
               {filteredReviews.length} {filteredReviews.length === 1 ? 'Review' : 'Reviews'}
             </h2>
             <ReviewFilters 
@@ -135,10 +135,10 @@ export default function GuideReviewsPage() {
             </div>
           ) : (
             <div className="text-center py-16 bg-white rounded-xl border border-dashed border-gray-300">
-              <p className="text-gray-500 text-lg">No reviews match your selected filter.</p>
+              <p className="text-gray-500 dark:text-gray-400 text-lg">No reviews match your selected filter.</p>
               <button 
                 onClick={() => setActiveFilter('all')}
-                className="mt-4 text-blue-600 font-medium hover:underline"
+                className="mt-4 text-blue-600  font-medium hover:underline"
               >
                 Clear filters
               </button>

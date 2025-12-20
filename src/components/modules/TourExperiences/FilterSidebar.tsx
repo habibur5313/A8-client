@@ -45,19 +45,19 @@ function FilterSection({
 }) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   return (
-    <div className="border-b border-stone-100 py-5">
+    <div className="border-b border-stone-100 dark:border-stone-800 py-5">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center justify-between w-full text-left mb-2 group"
       >
-        <span className="font-semibold text-stone-900 group-hover:text-teal-700 transition-colors">
+        <span className="font-semibold text-stone-900 dark:text-white group-hover:text-teal-700 transition-colors">
           {title}
         </span>
 
         {isOpen ? (
-          <ChevronUp size={16} className="text-stone-400" />
+          <ChevronUp size={16} className="text-stone-400 dark:text-stone-300" />
         ) : (
-          <ChevronDown size={16} className="text-stone-400" />
+          <ChevronDown size={16} className="text-stone-400 dark:text-stone-300" />
         )}
       </button>
 
@@ -89,17 +89,17 @@ export function FilterSidebar({
     <div className="h-full flex flex-col">
       {/* Mobile Header */}
       <div className="flex items-center justify-between md:hidden mb-6">
-        <h2 className="text-xl font-bold text-stone-900">Filters</h2>
-        <button onClick={onClose} className="p-2 hover:bg-stone-100 rounded-full">
+        <h2 className="text-xl font-bold text-stone-900 dark:text-white">Filters</h2>
+        <button onClick={onClose} className="p-2 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-full">
           <X size={20} />
         </button>
       </div>
 
       {/* Scrollable content */}
-      <div className="flex-1 overflow-y-auto custom-scrollbar pr-2">
+      <div className="flex-1 overflow-y-auto custom-scrollbar pr-2 text-white">
         
         {/* City */}
-        <FilterSection title="City">
+        <FilterSection title="City" >
           <FormCheckbox id="paris" label="Paris, France" count={124} defaultChecked />
           <FormCheckbox id="tokyo" label="Tokyo, Japan" count={85} />
           <FormCheckbox id="barcelona" label="Barcelona, Spain" count={62} />
@@ -119,13 +119,13 @@ export function FilterSidebar({
         {/* Price */}
         <FilterSection title="Price Range">
           <div className="px-1 py-4">
-            <div className="relative h-1.5 bg-stone-200 rounded-full mb-6">
-              <div className="absolute left-[10%] right-[30%] h-full bg-teal-600 rounded-full"></div>
-              <div className="absolute left-[10%] top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-teal-600 rounded-full shadow cursor-pointer"></div>
-              <div className="absolute right-[30%] top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-teal-600 rounded-full shadow cursor-pointer"></div>
+            <div className="relative h-1.5 bg-stone-200  rounded-full mb-6">
+              <div className="absolute left-[10%] right-[30%] h-full bg-teal-600 dark:bg-teal-500 rounded-full"></div>
+              <div className="absolute left-[10%] top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-teal-600 dark:border-stone-800 rounded-full shadow cursor-pointer"></div>
+              <div className="absolute right-[30%] top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-teal-600 dark:border-stone-800 rounded-full shadow cursor-pointer"></div>
             </div>
 
-            <div className="flex items-center justify-between text-sm text-stone-600 font-medium">
+            <div className="flex items-center justify-between text-sm text-stone-600 dark:text-stone-400 font-medium">
               <span>$50</span>
               <span>$350</span>
             </div>
@@ -145,7 +145,7 @@ export function FilterSidebar({
           <label className="flex items-center cursor-pointer group">
             <input type="radio" name="rating" className="mr-3 w-4 h-4" />
             <span className="flex items-center text-sm">
-              <span className="text-amber-400 mr-2">★★★★★</span>
+              <span className="text-amber-400 dark:text-amber-300 mr-2">★★★★★</span>
               5.0 only
             </span>
           </label>
@@ -153,7 +153,7 @@ export function FilterSidebar({
           <label className="flex items-center cursor-pointer group">
             <input type="radio" name="rating" className="mr-3 w-4 h-4" defaultChecked />
             <span className="flex items-center text-sm">
-              <span className="text-amber-400 mr-2">★★★★☆</span>
+              <span className="text-amber-400 dark:text-amber-300 mr-2">★★★★☆</span>
               4.0 & up
             </span>
           </label>
@@ -161,7 +161,7 @@ export function FilterSidebar({
           <label className="flex items-center cursor-pointer group">
             <input type="radio" name="rating" className="mr-3 w-4 h-4" />
             <span className="flex items-center text-sm">
-              <span className="text-amber-400 mr-2">★★★☆☆</span>
+              <span className="text-amber-400 dark:text-amber-300 mr-2">★★★☆☆</span>
               3.0 & up
             </span>
           </label>
@@ -169,7 +169,7 @@ export function FilterSidebar({
       </div>
 
       {/* Mobile Button */}
-      <div className="pt-6 mt-auto border-t border-stone-100 md:hidden">
+      <div className="pt-6 mt-auto border-t border-stone-100 dark:border-stone-800 md:hidden">
         <Button className="w-full" onClick={onClose}>
           Show 145 Results
         </Button>
@@ -193,7 +193,7 @@ export function FilterSidebar({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={onClose}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden"
+              className="fixed inset-0 bg-black/40 dark:bg-black/50 backdrop-blur-sm z-40 md:hidden"
             />
 
             <motion.div

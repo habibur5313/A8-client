@@ -9,6 +9,7 @@ import { Bell, Menu, Search } from "lucide-react";
 import { useEffect, useState } from "react";
 import DashboardMobileSidebar from "./DashboardMobileSidebar";
 import UserDropdown from "./UserDropdown";
+import { ModeToggle } from "@/components/ModeToggle";
 
 interface DashboardNavbarContentProps {
   userInfo: UserInfo;
@@ -62,6 +63,7 @@ const DashboardNavbarContent = ({
 
         {/* Right Side Actions */}
         <div className="flex items-center gap-2">
+          <ModeToggle/>
           {/* Notifications */}
           <Button variant="outline" size="icon" className="relative">
             <Bell className="h-5 w-5" />

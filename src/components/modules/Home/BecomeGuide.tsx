@@ -1,7 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 export function BecomeGuide() {
   return (
-    <section className="py-20 px-6">
+    <section className="py-20 px-6 dark:bg-slate-900">
       <div className="container mx-auto">
         <div className="bg-gray-900 rounded-[3rem] overflow-hidden relative">
           {/* Background Image with Overlay */}

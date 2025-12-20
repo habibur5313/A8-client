@@ -27,16 +27,16 @@ const benefits = [
 ]
 export function WhyChooseUs() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white dark:bg-slate-900">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           {/* Left Content */}
           <div className="lg:w-1/2">
             <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-2 block">Why Choose Us</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
               Travel with Confidence and Curiosity
             </h2>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
               We&rsquo;re building a community of trust where travelers can connect with locals safely and meaningfully.
             </p>
             
@@ -46,8 +46,8 @@ export function WhyChooseUs() {
                   <div className={`w-14 h-14 rounded-2xl ${benefit.color} flex items-center justify-center mb-4`}>
                     <benefit.icon className="w-7 h-7" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{benefit.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{benefit.description}</p>
                 </div>
               ))}
             </div>
@@ -72,7 +72,7 @@ export function WhyChooseUs() {
                     </div>
                   ))}
                 </div>
-                <div className="text-sm font-bold text-gray-900">
+                <div className="text-sm font-bold text-gray-900 ">
                   10k+ Happy Travelers
                 </div>
               </div>

@@ -6,6 +6,7 @@ import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
 import { logoutUser } from "@/services/auth/logoutUser";
 import { userInfo } from "os";
+import { ModeToggle } from "../ModeToggle";
 
 export function PublicNavbar({accessToken}: {accessToken?: string | null}) {
 
@@ -63,6 +64,7 @@ export function PublicNavbar({accessToken}: {accessToken?: string | null}) {
             >
               Dashboard
             </Link>
+            <ModeToggle/>
 
             {accessToken ? (
               <Button
@@ -93,7 +95,7 @@ export function PublicNavbar({accessToken}: {accessToken?: string | null}) {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-100">
-          <div className="px-4 py-4 space-y-3">
+          <div className="px-4 py-4 flex flex-col space-y-3">
             <Link
               href="/"
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
@@ -118,12 +120,24 @@ export function PublicNavbar({accessToken}: {accessToken?: string | null}) {
             >
               Dashboard
             </Link>
+            <div className="flex gap-4">
+              <ModeToggle/>
 
-            <Link href="/login">
-              <Button className="w-full px-6 py-2.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold">
-                Login
+            {accessToken ? (
+              <Button
+                onClick={handleLogout}
+                className="px-6 py-2.5 bg-red-600 hover:bg-red-600 cursor-pointer text-white rounded-full font-semibold"
+              >
+                Logout
               </Button>
-            </Link>
+            ) : (
+              <Link href="/login">
+                <Button className="px-6 py-2.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold">
+                  Login
+                </Button>
+              </Link>
+            )}
+            </div>
           </div>
         </div>
       )}

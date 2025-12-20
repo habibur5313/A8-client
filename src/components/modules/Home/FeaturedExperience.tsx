@@ -31,12 +31,12 @@ const categories = [
 ]
 export function FeaturedExperiences() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50 dark:bg-slate-900">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Experiences</h2>
-            <p className="text-lg text-gray-600">Browse tours by your specific interests.</p>
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Featured Experiences</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">Browse tours by your specific interests.</p>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

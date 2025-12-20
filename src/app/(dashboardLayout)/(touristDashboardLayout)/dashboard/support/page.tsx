@@ -72,10 +72,10 @@ export default function SupportCenter() {
     ticket.preview.toLowerCase().includes(searchQuery.toLowerCase())
   )
   return (
-    <div className="min-h-screen bg-gray-50/50">
+    <div className="min-h-screen bg-gray-50/50 dark:bg-gray-900">
       {/* Header */}
-      <header className="bg-white border-b ">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+      <header className="bg-white dark:bg-gray-900 border-b ">
+        <div className=" px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="bg-primary/10 p-2 rounded-lg">
               <LifeBuoy className="h-6 w-6 text-primary" />
@@ -96,7 +96,7 @@ export default function SupportCenter() {
           </div>
         </div>
       </header>
-      <main className="container mx-auto px-4 py-8 max-w-6xl">
+      <main className="px-4 py-8 ">
         {view === "list" ? (
           <div className="space-y-6">
             {/* Action Bar */}

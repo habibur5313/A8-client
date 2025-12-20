@@ -38,11 +38,11 @@ const guides = [{
 ]
 export function TopGuides() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20  bg-gray-50 dark:bg-slate-900 ">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Meet Our Top Rated Guides</h2>
-          <p className="text-lg text-gray-600">Connect with passionate locals who know their cities inside and out.</p>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Meet Our Top Rated Guides</h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300">Connect with passionate locals who know their cities inside and out.</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {guides.map((guide) => (

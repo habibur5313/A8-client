@@ -28,11 +28,11 @@ const steps = [
 ]
 export function HowItWorks() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-24 dark:bg-slate-900  relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <span className="text-blue-600 font-bold tracking-wider uppercase text-sm mb-2 block">Simple Process</span>
-          <h2 className="text-4xl font-bold text-gray-900">How It Works</h2>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white">How It Works</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
           {/* Connecting Line (Desktop) */}
@@ -45,8 +45,8 @@ export function HowItWorks() {
                   {index + 1}
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
-              <p className="text-gray-600 leading-relaxed max-w-xs">{step.description}</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{step.title}</h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed max-w-xs">{step.description}</p>
             </div>
           ))}
         </div>

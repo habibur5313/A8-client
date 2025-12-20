@@ -7,6 +7,7 @@ import InputFieldError from "./shared/InputFieldError";
 import { Button } from "./ui/button";
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "./ui/field";
 import { Input } from "./ui/input";
+import Link from "next/link";
 
 const RegisterForm = () => {
   const [state, formAction, isPending] = useActionState(registerTourist, null);
@@ -17,10 +18,32 @@ const RegisterForm = () => {
     }
   }, [state]);
   return (
-    <div className="flex-1 flex items-center justify-center p-6 lg:p-12 bg-gray-50">
+    <div className="flex-1 flex items-center justify-center p-6 lg:p-12 bg-gray-50 dark:bg-slate-900">
         <div className="w-full max-w-md">
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+            <Link href="/" className="flex items-center gap-2 mb-4">
+          <svg
+            className="w-7 h-7 dark:text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+            <h1 className="text-3xl font-bold dark:text-white flex gap-2">Travel<span>Guide</span></h1>
+          </Link>
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
               Start Your Journey
             </h1>
             <p className="text-gray-600">
@@ -29,7 +52,7 @@ const RegisterForm = () => {
           </div>
     <form action={formAction}>
       <FieldGroup>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
           {/* Name */}
           <Field>
             <FieldLabel htmlFor="name">Full Name</FieldLabel>
@@ -85,7 +108,7 @@ const RegisterForm = () => {
 
             <FieldDescription className="px-6 text-center">
               Already have an account?{" "}
-              <a href="/login" className="text-blue-600 hover:underline">
+              <a href="/login" className="text-blue-600 dark:text-blue-400 hover:underline">
                 Sign in
               </a>
             </FieldDescription>

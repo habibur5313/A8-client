@@ -8,7 +8,7 @@ import { Avatar } from "@radix-ui/react-avatar";
 
 export function ReviewCard({ review }: any) {
   return (
-    <Card className="p-6 bg-gray-50/50 border-none">
+    <Card className="p-6 bg-gray-50/50 dark:bg-gray-900 border-none">
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
           {/* <Avatar src={review.authorAvatar} alt={review.authorName} /> */}
@@ -18,15 +18,15 @@ export function ReviewCard({ review }: any) {
             </AvatarFallback>
           </Avatar>
           <div>
-            <h4 className="font-bold text-gray-900 text-sm">
+            <h4 className="font-bold text-gray-900 dark:text-white text-sm">
               {review.authorName}
             </h4>
-            <p className="text-xs text-gray-500">{review.date}</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">{review.date}</p>
           </div>
         </div>
         <Rating rating={review.rating} showCount={false} />
       </div>
-      <p className="text-gray-600 text-sm leading-relaxed">{review.comment}</p>
+      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{review.comment}</p>
     </Card>
   );
 }

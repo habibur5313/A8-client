@@ -45,18 +45,18 @@ export default function MyReviewsPage() {
     }
   }
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
+    <div className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8">
+      <div className="">
         <header className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">My Reviews</h1>
-          <p className="mt-2 text-gray-600">Manage reviews for tours and guides youve experienced.</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">My Reviews</h1>
+          <p className="mt-2 text-gray-600 dark:text-gray-400">Manage reviews for tours and guides youve experienced.</p>
         </header>
         {reviews.length === 0 ? (
-          <div className="text-center py-12 bg-white rounded-lg border border-gray-200 border-dashed">
-            <p className="text-gray-500 text-lg">You havent written any reviews yet.</p>
+          <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 border-dashed ">
+            <p className="text-gray-500 dark:text-gray-400 text-lg">You havent written any reviews yet.</p>
           </div>
         ) : (
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
             {reviews.map((review) => (
               <ReviewCard
                 key={review.id}

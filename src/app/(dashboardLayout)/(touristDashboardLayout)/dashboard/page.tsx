@@ -98,11 +98,11 @@ const upcomingBookings: Booking[] = [
 ]
 export default function TouristDashboard() {
   return (
-    <div className="bg-gray-50 font-sans text-gray-900">
+    <div className=" font-sans text-gray-900 dark:text-gray-100">
       {/* Main Content */}
       <main className="">
   
-        <div className="p-6 max-w-7xl mx-auto space-y-8">
+        <div className="p-6  space-y-8">
           {/* Metrics Row */}
           <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {metrics.map((metric) => (
@@ -115,7 +115,7 @@ export default function TouristDashboard() {
               {/* Recommended Guides */}
               <section>
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-xl font-bold text-gray-900">Recommended Guides</h2>
+                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">Recommended Guides</h2>
                   <button className="text-sm font-medium text-sky-600 hover:text-sky-700 hover:underline">
                     View All
                   </button>
@@ -129,7 +129,7 @@ export default function TouristDashboard() {
               {/* Saved Guides (Smaller Section) */}
               <section>
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-xl font-bold text-gray-900">Saved Guides</h2>
+                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">Saved Guides</h2>
                   <button className="text-sm font-medium text-sky-600 hover:text-sky-700 hover:underline">
                     View All
                   </button>

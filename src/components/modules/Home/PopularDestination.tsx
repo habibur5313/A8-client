@@ -39,12 +39,12 @@ const destinations = [
 ]
 export function PopularDestinations() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 dark:bg-slate-900">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Popular Destinations</h2>
-            <p className="text-lg text-gray-600">Discover the most sought-after cities where our local experts are ready to show you around.</p>
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Popular Destinations</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">Discover the most sought-after cities where our local experts are ready to show you around.</p>
           </div>
           <button className="text-blue-600 font-bold hover:text-blue-700 flex items-center gap-2 group">
             View all cities

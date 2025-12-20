@@ -152,7 +152,7 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
               )}
 
               {success && (
-                <div className="bg-green-500/10 text-green-600 px-4 py-3 rounded-md text-sm">
+                <div className="bg-green-500/10 dark:bg-green-500/10 text-green-600 dark:text-green-400 px-4 py-3 rounded-md text-sm">
                   {success}
                 </div>
               )}

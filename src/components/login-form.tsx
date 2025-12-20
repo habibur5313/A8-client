@@ -1,21 +1,3 @@
-// "use client";
-// import { loginUser } from "@/services/auth/loginUser";
-// import { useActionState, useEffect } from "react";
-// import { toast } from "sonner";
-// import InputFieldError from "./shared/InputFieldError";
-// import { Button } from "./ui/button";
-// import { Field, FieldDescription, FieldGroup, FieldLabel } from "./ui/field";
-// import { Input } from "./ui/input";
-
-// const LoginForm = ({ redirect }: { redirect?: string }) => {
-
-//   return (
-
-//   );
-// };
-
-// export default LoginForm;
-
 "use client";
 import { useActionState, useEffect } from "react";
 import { Input } from "./ui/input";
@@ -24,6 +6,7 @@ import { loginUser } from "@/services/auth/loginUser";
 import { toast } from "sonner";
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "./ui/field";
 import InputFieldError from "./shared/InputFieldError";
+import Link from "next/link";
 
 
 export function LoginForm({ redirect }: { redirect?: string }) {
@@ -39,8 +22,9 @@ export function LoginForm({ redirect }: { redirect?: string }) {
       {/* Logo */}
       <div className="mb-8">
         <div className="w-12 h-12 bg-gradient-to-br from-coral-400 to-coral-600 rounded-2xl flex items-center justify-center mb-4">
+          <Link href="/" className="flex items-center gap-2">
           <svg
-            className="w-7 h-7 text-white"
+            className="w-7 h-7 dark:text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -58,9 +42,11 @@ export function LoginForm({ redirect }: { redirect?: string }) {
               d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
             />
           </svg>
+            <h1 className="text-3xl font-bold dark:text-white flex gap-2">Travel<span>Guide</span></h1>
+          </Link>
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome back</h1>
-        <p className="text-gray-600">Sign in to continue your journey</p>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Welcome back</h1>
+        <p className="text-gray-600 dark:text-gray-400">Sign in to continue your journey</p>
       </div>
       {/* Form */}
       <form action={formAction}>

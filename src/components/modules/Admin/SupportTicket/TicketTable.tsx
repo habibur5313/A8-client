@@ -55,7 +55,7 @@ export function TicketTable({
   };
   const allSelected = tickets.length > 0 && selectedTickets.length === tickets.length;
   return (
-    <div className="bg-white rounded-lg border border-slate-200 shadow-sm overflow-hidden">
+    <div className=" rounded-lg border border-slate-200 shadow-sm overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full text-sm text-left">
           <thead className="bg-slate-50 text-slate-500 font-medium border-b border-slate-200">
@@ -63,7 +63,7 @@ export function TicketTable({
               <th className="px-4 py-3 w-10">
                 <input 
                   type="checkbox" 
-                  className="rounded border-slate-300 text-slate-900 focus:ring-slate-900"
+                  className="rounded border-slate-300 text-slate-900 dark:text-slate-50 focus:ring-slate-900"
                   checked={allSelected}
                   onChange={(e) => onSelectAll(e.target.checked ? tickets.map(t => t.id) : [])}
                 />
@@ -102,18 +102,18 @@ export function TicketTable({
               sortedTickets.map((ticket) => (
                 <tr 
                   key={ticket.id} 
-                  className={`hover:bg-slate-50 transition-colors ${selectedTickets.includes(ticket.id) ? 'bg-slate-50' : ''}`}
+                  className={`hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors ${selectedTickets.includes(ticket.id) ? 'bg-slate-50 dark:bg-slate-800' : ''}`}
                 >
                   <td className="px-4 py-3">
                     <input 
                       type="checkbox" 
-                      className="rounded border-slate-300 text-slate-900 focus:ring-slate-900"
+                      className="rounded border-slate-300 text-slate-900 dark:text-slate-50 focus:ring-slate-900"
                       checked={selectedTickets.includes(ticket.id)}
                       onChange={() => onSelectTicket(ticket.id)}
                     />
                   </td>
                   <td className="px-4 py-3 font-mono text-slate-600">{ticket.id}</td>
-                  <td className="px-4 py-3 font-medium text-slate-900">
+                  <td className="px-4 py-3 font-medium text-slate-900 dark:text-slate-50">
                     <button onClick={() => onTicketClick(ticket)} className="hover:underline text-left">
                       {ticket.subject}
                     </button>

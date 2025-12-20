@@ -63,7 +63,7 @@ const ResetPasswordForm = ({ redirect }: { redirect?: string }) => {
 
             <FieldDescription className="px-6 text-center mt-4">
               Remember your password?{" "}
-              <a href="/login" className="text-blue-600 hover:underline">
+              <a href="/login" className="text-blue-600 dark:text-blue-400 hover:underline">
                 Back to Login
               </a>
             </FieldDescription>

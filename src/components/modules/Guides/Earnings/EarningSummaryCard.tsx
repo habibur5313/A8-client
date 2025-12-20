@@ -37,11 +37,11 @@ export function EarningsSummaryCards() {
         <Card key={stat.label} className="hover:shadow-md transition-shadow">
           <CardContent className="flex items-start justify-between">
             <div>
-              <p className="text-sm font-medium text-slate-500 mb-1">{stat.label}</p>
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">{stat.amount}</h3>
+              <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">{stat.label}</p>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-2">{stat.amount}</h3>
               <div className="flex items-center gap-1.5">
-                {stat.trend === 'up' && <TrendingUp className="h-3.5 w-3.5 text-emerald-500" />}
-                <span className="text-xs font-medium text-slate-500">{stat.change}</span>
+                {stat.trend === 'up' && <TrendingUp className="h-3.5 w-3.5 text-emerald-500 dark:text-emerald-400" />}
+                <span className="text-xs font-medium text-slate-500 dark:text-slate-400">{stat.change}</span>
               </div>
             </div>
             <div className={`p-3 rounded-xl ${stat.bg}`}>

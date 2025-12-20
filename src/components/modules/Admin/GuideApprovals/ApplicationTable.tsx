@@ -20,51 +20,51 @@ export function ApplicationTable({
   sortDirection,
 }: ApplicationTableProps) {
   return (
-    <div className="overflow-hidden shadow-md ring-1 ring-black ring-opacity-5 md:rounded-lg bg-white">
+    <div className="overflow-hidden shadow-md ring-1 ring-black ring-opacity-5 md:rounded-lg bg-white dark:bg-gray-800">
       <table className="min-w-full divide-y divide-gray-300">
-        <thead className="bg-gray-50">
+        <thead className="bg-gray-50 dark:bg-gray-700">
           <tr>
             <th
               scope="col"
-              className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+              className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-300 sm:pl-6"
             >
               Applicant
             </th>
             <th
               scope="col"
-              className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 hidden lg:table-cell"
+              className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-300  hidden lg:table-cell"
             >
               Contact Info
             </th>
             <th
               scope="col"
-              className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer hover:bg-gray-100 transition-colors group"
+              className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-300 cursor-pointer hover:bg-gray-100 transition-colors group"
               onClick={onSortDate}
             >
               <div className="flex items-center">
                 Submitted Date
-                <span className="ml-2 flex-none rounded text-gray-400 group-hover:visible group-focus:visible">
+                <span className="ml-2 flex-none rounded text-gray-400 dark:text-gray-500   group-hover:visible group-focus:visible">
                   <ArrowUpDown className={`h-4 w-4 ${sortDirection === 'asc' ? 'text-teal-600' : ''}`} />
                 </span>
               </div>
             </th>
             <th
               scope="col"
-              className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-300"
             >
               Status
             </th>
             <th
               scope="col"
-              className="relative py-3.5 pl-3 pr-4 sm:pr-6 text-right text-sm font-semibold text-gray-900"
+              className="relative py-3.5 pl-3 pr-4 sm:pr-6 text-right text-sm font-semibold text-gray-900 dark:text-gray-300"
             >
               <span className="sr-only">Actions</span>
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200 bg-white">
+        <tbody className="divide-y divide-gray-200 bg-white dark:bg-gray-800">
           {applications.map((app) => (
-            <tr key={app.id} className="hover:bg-gray-50 transition-colors">
+            <tr key={app.id} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
               <td className="whitespace-nowrap py-4 pl-4 pr-3 sm:pl-6">
                 <div className="flex items-center">
                   <div className="h-10 w-10 flex-shrink-0">
@@ -82,13 +82,13 @@ export function ApplicationTable({
                     )}
                   </div>
                   <div className="ml-4">
-                    <div className="font-medium text-gray-900">{app.name}</div>
+                    <div className="font-medium text-gray-900 dark:text-gray-200">{app.name}</div>
                     <div className="text-gray-500 lg:hidden">{app.email}</div>
                   </div>
                 </div>
               </td>
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 hidden lg:table-cell">
-                <div className="text-gray-900">{app.email}</div>
+                <div className="text-gray-900 dark:text-gray-200">{app.email}</div>
                 <div className="text-gray-500">{app.contactNumber}</div>
               </td>
               <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">

@@ -12,7 +12,7 @@ import { ContactSection } from "@/components/modules/Home/ContactSection";
 export default function Home() {
   
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900">
+    <div className="min-h-screen  font-sans text-gray-900">
       <Head>
         <title>Travel Guide</title>
         <meta

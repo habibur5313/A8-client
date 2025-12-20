@@ -106,7 +106,7 @@ const REVIEWS_DATA: ReviewProps[] = [
 export default async function GuideDashboard() {
   const userInfo = await getUserInfo();
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
+    <div className="min-h-screen   font-sans text-slate-900 dark:text-slate-50">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Page Title */}
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
@@ -146,7 +146,7 @@ export default async function GuideDashboard() {
             {/* Upcoming Bookings */}
             <section>
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-bold text-slate-900">
+                <h2 className="text-xl font-bold text-slate-900 dark:text-white">
                   Upcoming Bookings
                 </h2>
                 <button className="text-sm font-medium text-blue-600 hover:text-blue-700">
@@ -162,14 +162,14 @@ export default async function GuideDashboard() {
             {/* Recent Reviews */}
             <section>
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-bold text-slate-900">
+                <h2 className="text-xl font-bold text-slate-900 dark:text-white">
                   Recent Reviews
                 </h2>
                 <div className="flex items-center gap-2">
-                  <span className="text-sm text-slate-500">
+                  <span className="text-sm text-slate-500 dark:text-slate-400">
                     Average Rating:
                   </span>
-                  <span className="px-2 py-0.5 bg-orange-100 text-orange-700 rounded text-sm font-bold">
+                  <span className="px-2 py-0.5 bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-400   rounded text-sm font-bold">
                     4.9
                   </span>
                 </div>

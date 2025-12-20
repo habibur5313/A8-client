@@ -10,8 +10,8 @@ return (
     <div className="p-8">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-800 mb-2">Welcome back, {userInfo?.name}! 👋</h1>
-        <p className="text-slate-600">Here&apos;s what&apos;s happening with your tours today.</p>
+        <h1 className="text-3xl font-bold text-slate-800 dark:text-slate-50 mb-2">Welcome back, {userInfo?.name}! 👋</h1>
+        <p className="text-slate-600 dark:text-slate-400">Here&apos;s what&apos;s happening with your tours today.</p>
       </div>
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">

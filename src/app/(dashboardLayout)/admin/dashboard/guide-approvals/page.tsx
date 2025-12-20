@@ -45,8 +45,8 @@ export default function GuideApplicationsPage() {
       });
   }, [applications, searchQuery, statusFilter, sortDirection]);
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen">
+      <div className="px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="md:flex md:items-center md:justify-between mb-8">
           <div className="flex-1 min-w-0">
@@ -54,7 +54,7 @@ export default function GuideApplicationsPage() {
               <div className="p-2 bg-teal-100 rounded-lg mr-3">
                 <Users className="h-6 w-6 text-teal-600" />
               </div>
-              <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+              <h2 className="text-2xl font-bold leading-7 text-gray-900 dark:text-white sm:text-3xl sm:truncate">
                 Guide Applications
               </h2>
             </div>
@@ -78,9 +78,9 @@ export default function GuideApplicationsPage() {
         {/* Content */}
         <div className="mt-4">
           {filteredAndSortedApplications.length === 0 ? (
-            <div className="text-center py-12 bg-white rounded-lg shadow-sm border border-gray-200">
+            <div className="text-center py-12  rounded-lg shadow-sm border border-gray-200">
               <Users className="mx-auto h-12 w-12 text-gray-400" />
-              <h3 className="mt-2 text-sm font-medium text-gray-900">No applications found</h3>
+              <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-white">No applications found</h3>
               <p className="mt-1 text-sm text-gray-500">
                 Try adjusting your search or filter to find what youre looking for.
               </p>

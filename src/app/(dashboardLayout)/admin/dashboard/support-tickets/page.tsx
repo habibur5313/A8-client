@@ -60,12 +60,12 @@ export default function SupportTicket() {
     setSelectedTickets([]);
   };
   return (
-    <div className="min-h-screen bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen ">
+      <div className="px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-slate-900">Support Tickets</h1>
-          <p className="text-slate-500 mt-1">Manage and respond to user support requests.</p>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-50">Support Tickets</h1>
+          <p className="text-slate-500 dark:text-slate-400 mt-1">Manage and respond to user support requests.</p>
         </div>
         {/* Filters */}
         <FilterBar 

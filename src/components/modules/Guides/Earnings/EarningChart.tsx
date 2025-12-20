@@ -22,7 +22,7 @@ export function EarningsChart() {
     <Card className="mb-8">
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle>Earnings Overview</CardTitle>
-        <select className="text-sm border-slate-200 rounded-md text-slate-600 focus:ring-teal-500 focus:border-teal-500">
+        <select className="text-sm border-slate-200 rounded-md text-slate-600 dark:text-slate-400 dark:border-slate-600 focus:outline-none focus:ring-teal-500 focus:border-teal-500">
           <option>Last 12 Months</option>
           <option>Last 6 Months</option>
           <option>This Year</option>

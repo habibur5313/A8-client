@@ -15,7 +15,7 @@ export default function TourPageClient({
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen  ">
       <SearchBar onMobileFilterClick={() => setIsMobileFilterOpen(true)} />
 
       <main className="max-w-7xl mx-auto px-4 md:px-8 py-8">
@@ -27,16 +27,16 @@ export default function TourPageClient({
 
           <div className="flex-1">
             <div className="flex items-center justify-between mb-6">
-              <h1 className="text-2xl font-bold text-stone-900">
+              <h1 className="text-2xl font-bold text-stone-900 dark:text-white">
                 Explore Experiences
-                <span className="ml-3 text-sm font-normal text-stone-500">
+                <span className="ml-3 text-sm font-normal text-stone-500 dark:text-stone-400">
                   {tours?.length || 0} results found
                 </span>
               </h1>
 
-              <div className="hidden md:flex items-center space-x-2 text-sm text-stone-600">
+              <div className="hidden md:flex items-center space-x-2 text-sm text-stone-600 dark:text-stone-400">
                 <span>Sort by:</span>
-                <select className="bg-transparent font-semibold text-stone-900 focus:outline-none cursor-pointer">
+                <select className="bg-transparent font-semibold text-stone-900  dark:text-white focus:outline-none cursor-pointer">
                   <option>Recommended</option>
                   <option>Price: Low to High</option>
                   <option>Price: High to Low</option>

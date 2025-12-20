@@ -76,7 +76,7 @@ export default function BookingsManagementPage() {
   }
   return (
     <div className="min-h-screen bg-background p-6 md:p-8">
-      <div className="max-w-7xl mx-auto space-y-8">
+      <div className="space-y-8">
         {/* Header */}
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-foreground">Bookings Management</h1>
