@@ -1,3 +1,5 @@
+import { IBooking } from "./booking.interface";
+
 export interface IReview {
   id: string;
   authorName: string;
@@ -26,6 +28,10 @@ export interface ITour {
   description?: string;
   maxGroupSize?: number;
   language?: string[];
+  reviews?: IReview[];
+  isVerified?: boolean;
+  isAvailable?: boolean;
+  booking?: IBooking[]
   isDeleted?: boolean;
   createdAt?: string;
   updatedAt?: string;

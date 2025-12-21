@@ -46,7 +46,7 @@ export function PublicNavbar({accessToken}: {accessToken?: string | null}) {
               Home
             </Link>
             <Link
-              href="/tour-experiences"
+              href="/tour-experiences?limit=9"
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
             >
               Tours & Experiences
@@ -103,7 +103,7 @@ export function PublicNavbar({accessToken}: {accessToken?: string | null}) {
               Home
             </Link>
             <Link
-              href="/tour-experiences"
+              href="/tour-experiences?limit=8"
               className="text-gray-700 dark:text-gray-200 hover:text-blue-600 font-medium transition-colors"
             >
               Tours & Experiences
