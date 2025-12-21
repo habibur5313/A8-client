@@ -40,13 +40,9 @@ export function TourCard({ tour }: { tour: ITour }) {
           </span>
         </div>
 
-        <div className="flex items-center mb-4 space-x-1">
-          <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-          <span className="text-sm font-semibold text-stone-900">{tour.rating}</span>
-          <span className="text-sm text-stone-400">({tour?.reviews?.length})</span>
-        </div>
+        
 
-          <Link href={`/guides/${tour.guide.name.replace(' ', '-').toLowerCase()}`}>
+          <Link href={`/gguide/${tour.guide.id}`} className='flex justify-between items-center'>
             <div className="flex items-center">
             <img 
               src={tour.guide.avatar} 
@@ -58,6 +54,11 @@ export function TourCard({ tour }: { tour: ITour }) {
               <span className="text-xs font-medium text-stone-700">{tour.guide.name}</span>
             </div>
           </div>
+          <div className="flex items-center mb-4 space-x-1">
+          <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
+          <span className="text-sm font-semibold text-stone-900 dark:text-white">{(tour?.guide?.averageRating).toFixed(1)}</span>
+          <span className="text-sm text-stone-400 dark:text-stone-300">({tour?.guide?.totalReviews})</span>
+        </div>
           </Link>
 
         <div className="flex items-center justify-between pt-4">

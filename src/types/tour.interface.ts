@@ -23,6 +23,8 @@ export interface ITour {
     id: string;
     name: string;
     avatar: string;
+    averageRating: number;
+    totalReviews: number;
   };
   location: string;
   description?: string;
