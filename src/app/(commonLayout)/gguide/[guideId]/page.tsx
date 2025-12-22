@@ -38,6 +38,13 @@
 
 import { getGuideById } from "@/services/admin/guidesManagement";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Travel Guide | Guide Details",
+  description: "Travel Guide | Guide Details",
+};
+
 interface PageProps {
   params: { guideId: string };
 }

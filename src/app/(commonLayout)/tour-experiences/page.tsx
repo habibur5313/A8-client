@@ -3,6 +3,13 @@ import TourPageClient from "@/components/modules/TourExperiences/TourPageClient"
 import { queryStringFormatter } from "@/lib/formatters";
 import { getListings } from "@/services/guide/tourManagement";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Tour Experiences | Travel Guide",
+  description: "Tour Experiences | Travel Guide",
+};
+
 export default async function TourPage({
   searchParams,
 }: {

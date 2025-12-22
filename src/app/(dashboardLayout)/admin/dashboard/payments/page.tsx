@@ -11,6 +11,13 @@ import { SearchBar } from "@/components/modules/Admin/GuideApprovals/Searchbar";
 import { TransactionFilters } from "@/components/modules/Admin/Payments/TransactionFilter";
 import { TransactionsTable } from "@/components/modules/Admin/Payments/TransactionTable";
 import TablePagination from "@/components/shared/TablePagination";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Payments Management | Travel Guide",
+  description: "Payments Management | Travel Guide",
+};
+
 // Mock Data Generation
 const generateMockTransactions = (count: number): Transaction[] => {
   const types = ["Booking", "Withdrawal", "Refund"] as const;

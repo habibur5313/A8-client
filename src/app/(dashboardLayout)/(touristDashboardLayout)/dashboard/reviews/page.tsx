@@ -1,6 +1,13 @@
 "use client"
 import { useState } from 'react'
 import { ReviewCard, Review } from '@/components/modules/Tourist/MyReview/MyReviewCard'
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "My Reviews | Travel Guide",
+  description: "My Reviews | Travel Guide",
+};
+
 const MOCK_REVIEWS: Review[] = [
   {
     id: '1',

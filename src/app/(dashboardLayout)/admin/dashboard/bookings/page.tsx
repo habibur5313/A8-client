@@ -4,6 +4,12 @@ import { BookingStatus } from '@/components/modules/Admin/BookingManagement/Book
 import { BookingsSummaryCards } from '@/components/modules/Admin/BookingManagement/BookingSummury'
 import { Booking, BookingsTable } from '@/components/modules/Admin/BookingManagement/BookingTable'
 import React, { useState, useMemo } from 'react'
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Bookings Management | Travel Guide",
+  description: "Bookings Management | Travel Guide",
+};
 // Mock Data Generation
 const MOCK_BOOKINGS: Booking[] = [
   { id: 'BK-2024-001', touristName: 'Alice Johnson', guideName: 'John Smith', date: '2024-03-15', status: 'confirmed', price: 150 },

@@ -3,6 +3,12 @@ import DashboardSidebar from "@/components/modules/Dashboard/DashboardSidebar";
 import React from "react";
 
 export const dynamic = "force-dynamic";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dashboard | Travel Guide",
+  description: "Dashboard | Travel Guide",
+};
 
 export default function CommonDashboardLayout({
   children,

@@ -6,6 +6,12 @@ import { SearchBar } from '@/components/modules/Admin/GuideApprovals/Searchbar';
 import { StatusFilter } from '@/components/modules/Admin/GuideApprovals/StatusFilter';
 import { ApplicationTable } from '@/components/modules/Admin/GuideApprovals/ApplicationTable';
 import { ApplicationCard } from '@/components/modules/Admin/GuideApprovals/ApplicationCard';
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Guide Applications | Travel Guide",
+  description: "Guide Applications | Travel Guide",
+};
 export default function GuideApplicationsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<ApplicationStatus | 'All'>('All');

@@ -2,6 +2,12 @@ import React from 'react'
 import { Wallet, CreditCard, RotateCcw } from 'lucide-react'
 import { SummaryCard } from '@/components/modules/Tourist/Payment/PaymentSummaryCard'
 import { TransactionTable } from '@/components/modules/Tourist/Payment/TransactionTable'
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Payments History | Travel Guide",
+  description: "Payments History | Travel Guide",
+};
 
 export default function PaymentsHistoryPage() {
   return (

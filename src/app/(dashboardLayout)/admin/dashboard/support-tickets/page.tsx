@@ -6,6 +6,12 @@ import { mockTickets } from '@/fakedata/mockTickets';
 import { FilterBar } from '@/components/modules/Admin/SupportTicket/FilterBar';
 import { TicketTable } from '@/components/modules/Admin/SupportTicket/TicketTable';
 import { TicketDetailsPanel } from '@/components/modules/Admin/SupportTicket/TicketDetailPanel';
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Support Tickets | Travel Guide",
+  description: "Support Tickets | Travel Guide",
+};
 export default function SupportTicket() {
   const [tickets, setTickets] = useState<Ticket[]>(mockTickets);
   const [searchQuery, setSearchQuery] = useState('');

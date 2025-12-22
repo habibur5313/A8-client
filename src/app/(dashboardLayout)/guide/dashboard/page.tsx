@@ -11,6 +11,12 @@ import {
   DollarSign,
   Compass,
 } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dashboard | Travel Guide",
+  description: "Dashboard | Travel Guide",
+};
 // Mock Data
 
 const STATS_DATA = [

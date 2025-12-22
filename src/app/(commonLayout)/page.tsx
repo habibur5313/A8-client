@@ -9,19 +9,17 @@ import { BecomeGuide } from "@/components/modules/Home/BecomeGuide";
 import { FeaturedExperiences } from "@/components/modules/Home/FeaturedExperience";
 import { ContactSection } from "@/components/modules/Home/ContactSection";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Travel Guide",
+  description: "A modern Local Guide selection system",
+};
+
 export default function Home() {
   
   return (
     <div className="min-h-screen  font-sans text-gray-900">
-      <Head>
-        <title>Travel Guide</title>
-        <meta
-          name="description"
-          content="A modern"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <main>
         <HeroSection />
         <PopularDestinations />

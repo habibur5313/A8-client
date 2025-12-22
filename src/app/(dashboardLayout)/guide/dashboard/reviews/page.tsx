@@ -3,6 +3,12 @@ import { useState, useMemo } from 'react';
 import { ReviewCard, Review } from '@/components/modules/Guides/Review/ReviewCard'; 
 import { RatingSummary } from '@/components/modules/Guides/Review/RatingSummary';
 import { ReviewFilters } from '@/components/modules/Guides/Review/ReviewFillters';
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Reviews | Travel Guide",
+  description: "Reviews | Travel Guide",
+};
 // Mock Data
 const MOCK_REVIEWS: Review[] = [
   {

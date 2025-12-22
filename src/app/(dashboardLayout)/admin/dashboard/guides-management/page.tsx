@@ -6,6 +6,12 @@ import { TableSkeleton } from "@/components/shared/TableSkeleton";
 import { queryStringFormatter } from "@/lib/formatters";
 import { getGuides } from "@/services/admin/guidesManagement";
 import { Suspense } from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Guides Management | Travel Guide",
+  description: "Guides Management | Travel Guide",
+};
 
 const AdminGuidesManagementPage = async ({ searchParams }: { searchParams: Promise<Record<string, string | string[]>> }) => {
   const searchParamsObj = await searchParams;

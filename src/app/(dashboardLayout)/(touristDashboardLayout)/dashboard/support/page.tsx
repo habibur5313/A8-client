@@ -6,7 +6,12 @@ import { Button } from "@/components/ui/button2"
 import { Plus, LifeBuoy, Search, Filter } from "lucide-react"
 import { Ticket, TicketList } from "@/components/modules/Tourist/Support/TicketList"
 import { TicketForm } from "@/components/modules/Tourist/Support/TicketForm"
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Support | Travel Guide",
+  description: "Support | Travel Guide",
+};
 
 // Mock data
 const MOCK_TICKETS: Ticket[] = [

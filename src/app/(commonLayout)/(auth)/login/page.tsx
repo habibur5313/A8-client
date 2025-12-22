@@ -1,8 +1,14 @@
-// import LoginForm from "@/components/login-form";
 
 import { LoginForm } from "@/components/login-form";
 import { TravelIllustration } from "@/components/TravelIllustration";
+import { Metadata } from "next";
 import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "Login | Travel Guide",
+  description: "Login to your account",
+  
+};
 
 const LoginPage = async ({
   searchParams,

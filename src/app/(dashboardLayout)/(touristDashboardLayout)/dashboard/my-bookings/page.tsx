@@ -6,6 +6,12 @@ import MyBookingFilters from "@/components/modules/Tourist/MyBooking/MyBookingFi
 import MyBookingsTable from "@/components/modules/Tourist/MyBooking/MyBookingsTable";
 import {  getMyBookings } from "@/services/tourist/bookGuideManagement";
 import { getUserInfo } from "@/services/auth/getUserInfo";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "My Bookings | Travel Guide",
+  description: "My Bookings | Travel Guide",
+};
 
 const MyBookingPage = async () => {
 

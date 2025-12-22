@@ -3,7 +3,12 @@ import { HowItWorks } from '@/components/modules/Home/HowItWorks'
 import { Testimonials } from '@/components/modules/Home/Testimonials'
 import { WhyChooseUs } from '@/components/modules/Home/WhyChooseUs'
 import Head from 'next/head'
-import React from 'react'
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About | Contact | Travel Guide",
+  description: "About | Contact | Travel Guide",
+};
 
 const AboutAndContactPage = () => {
   return (

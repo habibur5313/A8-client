@@ -4,6 +4,13 @@ import { StatCard } from "@/components/ui/StatCard";
 import { getUserInfo } from "@/services/auth/getUserInfo";
 import { Calendar, List, MessageCircle, TrendingUp } from "lucide-react";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Admin Dashboard | Travel Guide",
+  description: "Admin Dashboard | Travel Guide",
+};
+
 const AdminDashboardPage = async () => {
   const userInfo = await getUserInfo();
 return (

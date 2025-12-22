@@ -3,6 +3,13 @@ import { getUserInfo } from "@/services/auth/getUserInfo";
 import { getListingById } from "@/services/guide/tourManagement";
 import { redirect } from "next/navigation";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Tour Details | Travel Guide",
+  description: "Tour Details | Travel Guide",
+};
+
 interface PageProps {
   params: { tourId: string };
 }

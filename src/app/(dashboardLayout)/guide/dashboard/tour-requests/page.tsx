@@ -6,6 +6,12 @@ import { TableSkeleton } from "@/components/shared/TableSkeleton";
 import { queryStringFormatter } from "@/lib/formatters";
 import { getListings } from "@/services/guide/tourManagement";
 import { Suspense } from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Tour Management | Travel Guide",
+  description: "Tour Management | Travel Guide",
+};
 
 const TourManagementPage = async ({
   searchParams,

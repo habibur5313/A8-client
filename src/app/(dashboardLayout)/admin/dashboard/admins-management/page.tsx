@@ -6,6 +6,12 @@ import { TableSkeleton } from "@/components/shared/TableSkeleton";
 import { queryStringFormatter } from "@/lib/formatters";
 import { getAdmins } from "@/services/admin/adminsManagement";
 import { Suspense } from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Admins Management | Travel Guide",
+  description: "Admins Management | Travel Guide",
+};
 
 const AdminAdminsManagementPage = async ({
   searchParams,
