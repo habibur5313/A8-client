@@ -1,3 +1,4 @@
+import { IBooking } from "./booking.interface";
 import { IReview } from "./tour.interface";
 
 export interface IGuideProfile {
@@ -23,6 +24,7 @@ export interface IGuideProfile {
   averageRating: number;
   totalReviews: number;
   reviews?: IReview[]
+  bookings?: IBooking[]
   isAvailable: boolean;
   isDeleted: boolean;
   isVerified: boolean;

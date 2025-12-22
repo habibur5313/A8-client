@@ -42,6 +42,7 @@ export default function TourDetailsClient({ tour }: any) {
       ? reviews.reduce((sum: number, r: any) => sum + r.rating, 0) / reviews.length
       : 0;
 
+
   return (
     <div className="min-h-screen  pb-20 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -135,8 +136,8 @@ export default function TourDetailsClient({ tour }: any) {
                     key={review.id}
                     review={{
                       id: review.id,
-                      authorName: 'Anonymous',
-                      authorAvatar: '',
+                      authorName: review?.tourist?.name || 'Anonymous',
+                      authorAvatar: review?.tourist?.profilePhoto || '',
                       rating: review.rating,
                       date: new Date(review.createdAt).toLocaleDateString(),
                       comment: review.comment,
