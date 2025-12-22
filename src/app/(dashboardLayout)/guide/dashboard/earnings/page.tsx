@@ -4,12 +4,12 @@ import { Button } from '@/components/ui/button'
 import { EarningsSummaryCards } from '@/components/modules/Guides/Earnings/EarningSummaryCard'
 import { EarningsChart } from '@/components/modules/Guides/Earnings/EarningChart'
 import { PayoutHistoryTable } from '@/components/modules/Guides/Earnings/PayoutHistoryTable'
-import { Metadata } from "next";
+// import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Earnings Dashboard | Travel Guide",
-  description: "Earnings Dashboard | Travel Guide",
-};
+// export const metadata: Metadata = {
+//   title: "Earnings Dashboard | Travel Guide",
+//   description: "Earnings Dashboard | Travel Guide",
+// };
 export default function Earnings() {
   return (
     <div className="min-h-screen  flex font-sans text-slate-900 dark:text-slate-50">

@@ -1,13 +1,20 @@
 import TourDetailsClient from "@/components/modules/TourExperiences/TourDetails/TourDetailsClient";
-import { getUserInfo } from "@/services/auth/getUserInfo";
 import { getListingById } from "@/services/guide/tourManagement";
-import { redirect } from "next/navigation";
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ tourId: string }>;
+}) => {
+  const { tourId } = await params;
 
-import { Metadata } from "next";
+  // Fetch tour data from server
+  const tourResult = await getListingById(tourId);
+  const tour = tourResult.data;
 
-export const metadata: Metadata = {
-  title: "Tour Details | Travel Guide",
-  description: "Tour Details | Travel Guide",
+  return {
+    title: `${tour?.title} | Travel Guide`,
+    description: `${tour?.description} | Travel Guide`,
+  };
 };
 
 interface PageProps {
@@ -17,16 +24,13 @@ interface PageProps {
 export default async function TourDetailsPage({ params }: PageProps) {
   const { tourId } = await params;
 
-  const userinfo = await getUserInfo();
-
-  // If user not logged in → redirect to login with callback
-  if (!userinfo.id) {
-    redirect(`/login`);
-  }
-
   // Fetch tour data from server
   const tourResult = await getListingById(tourId);
   const tour = tourResult.data;
 
-  return <TourDetailsClient tour={tour} />;
+  console.log(tour, "tour");
+
+  return <div>
+  <TourDetailsClient tour={tour} />
+  </div>;
 }
