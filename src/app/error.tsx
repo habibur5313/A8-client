@@ -5,13 +5,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { AlertTriangle, Home, RefreshCcw } from "lucide-react";
 import Link from "next/link";
 
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Error | Travel Guide",
-  description: "Error | Travel Guide",
-};
-
 export default function Error({
   error,
   reset,

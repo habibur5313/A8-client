@@ -49,7 +49,13 @@ export function PublicNavbar({accessToken}: {accessToken?: string | null}) {
               href="/tour-experiences?limit=9"
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
             >
-              Tours & Experiences
+              Tours
+            </Link>
+            <Link
+              href="/gguide?limit=9"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            >
+              Guides
             </Link>
             <Link
               href="/about-contact"
@@ -107,6 +113,12 @@ export function PublicNavbar({accessToken}: {accessToken?: string | null}) {
               className="text-gray-700 dark:text-gray-200 hover:text-blue-600 font-medium transition-colors"
             >
               Tours & Experiences
+            </Link>
+            <Link
+              href="/gguide?limit=8"
+              className="text-gray-700 dark:text-gray-200 hover:text-blue-600 font-medium transition-colors"
+            >
+              Guides
             </Link>
             <Link
               href="/about-contact"

@@ -1,5 +1,7 @@
 import GuideDetailsClient from "@/components/modules/Guides/GuideDetails/GuideDetailsClient";
+import GuideDetailsSkeleton from "@/components/shared/GuideDetailsSkeleton";
 import { getGuideById } from "@/services/admin/guidesManagement";
+import { Suspense } from "react";
 
 export const generateMetadata = async ({
   params,
@@ -29,6 +31,9 @@ export default async function GuideDetailsPage({ params }: PageProps) {
   const guideResult = await getGuideById(guideId);
   const guide = guideResult.data;
 
-
-  return <GuideDetailsClient guide={guide} />;
+  return (
+    <Suspense fallback={<GuideDetailsSkeleton/>}>
+      <GuideDetailsClient guide={guide} />
+    </Suspense>
+  );
 }

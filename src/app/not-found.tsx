@@ -5,12 +5,6 @@ import { AlertCircle, ArrowLeft, Home } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Suspense } from "react";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "404 | Travel Guide",
-  description: "404 | Travel Guide",
-};
 
 function NotFoundContent() {
   const router = useRouter();
