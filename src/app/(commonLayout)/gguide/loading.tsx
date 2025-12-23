@@ -1,9 +1,8 @@
+import GuidesPageSkeleton from '@/components/shared/GuidesPageSkeleton'
 import React from 'react'
 
 const GuidesLoading = () => {
-  return (
-    <div>GuidesLoading</div>
-  )
+  return <GuidesPageSkeleton />
 }
 
 export default GuidesLoading

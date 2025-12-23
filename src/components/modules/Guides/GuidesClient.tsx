@@ -1,73 +1,55 @@
-
-// import { IGuideProfile } from "@/types/guide.interface";
-// import { GuideCard } from "./GuideCard";
-
-// export default function GuidesClient({ guides }: { guides: IGuideProfile[] }) {
-// console.log(guides,"guides")
-//   return (
-//     <div className="  py-10 px-4 space-y-6 container mx-auto">
-//       <h1 className="text-2xl font-bold mb-6">Book a Guide</h1>
-
-//       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
-//         {guides.map((guide) => (
-//           <GuideCard key={guide.id} guide={guide}/>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
-
 "use client";
 
-import GuidesFilters from "@/components/modules/Guides/GuidesFilters";
-import { GuidesPagination } from "@/components/modules/Guides/GuidesPagination";
-import { GuideCard } from "@/components/modules/Guides/GuideCard";
+import { GuideCard } from "./GuideCard";
 import { IGuideProfile } from "@/types/guide.interface";
+import { GuidesPagination } from "./GuidesPagination";
+import GuidesFilters from "./GuidesFilters";
 
 interface GuidesClientProps {
   guides: IGuideProfile[];
   totalPages: number;
 }
 
-const GuidesClient = ({
+export default function GuidesClient({
   guides,
   totalPages,
-}: GuidesClientProps) => {
+}: GuidesClientProps) {
   return (
-    <section className="container mx-auto px-4 py-28">
-      {/* Filters */}
-      <div className="mb-8">
-        <GuidesFilters />
-      </div>
+    <section className="min-h-screen py-20">
+      <div className="max-w-7xl mx-auto px-4 space-y-10">
+        {/* Page Header */}
+        <div className="space-y-3">
+          <h1 className="text-xl font-semibold sm:text-2xl sm:font-bold md:text-4xl text-stone-900 dark:text-white">
+            Explore Local Guides
+            <span className="ml-3 text-sm font-normal text-stone-500 dark:text-stone-400">
+              {guides?.length || 0} results found
+            </span>
+          </h1>
 
-      {/* Content */}
-      {guides.length === 0 ? (
-        <div className="text-center py-20">
-          <h3 className="text-xl font-semibold mb-2">
-            No guides found
-          </h3>
-          <p className="text-muted-foreground">
-            Try adjusting your filters or search keywords.
+          <p className="text-gray-600 dark:text-gray-400">
+            Find experienced local guides to make your journey unforgettable
           </p>
         </div>
-      ) : (
-        <>
-          {/* Guides Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        {/* Search + Filters */}
+        <GuidesFilters />
+
+        {/* Guides Grid */}
+        {guides.length === 0 ? (
+          <p className="text-center text-gray-500 dark:text-gray-400">
+            No guides found
+          </p>
+        ) : (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {guides.map((guide) => (
               <GuideCard key={guide.id} guide={guide} />
             ))}
           </div>
+        )}
 
-          {/* Pagination */}
-          {totalPages > 1 && (
-            <GuidesPagination totalPages={totalPages} />
-          )}
-        </>
-      )}
+        {/* Pagination */}
+        {totalPages > 1 && <GuidesPagination totalPages={totalPages} />}
+      </div>
     </section>
   );
-};
-
-export default GuidesClient;
-
+}

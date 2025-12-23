@@ -1,16 +1,17 @@
 'use client';
 
 import { Card } from '@/components/ui/card';
+import { Skeleton } from '../ui/skeleton';
 
 export default function ToursPageSkeleton() {
   return (
-    <section className="min-h-screen py-16 animate-pulse">
+    <section className="min-h-screen py-20 animate-pulse">
       <div className="max-w-7xl mx-auto px-4 space-y-10">
 
         {/* Page Header */}
-        <div className="text-center space-y-3">
-          <div className="h-8 w-56 mx-auto bg-gray-200 dark:bg-gray-700 rounded" />
-          <div className="h-4 w-96 mx-auto bg-gray-200 dark:bg-gray-700 rounded" />
+        <div className="space-y-3">
+          <Skeleton className="h-8 w-64 sm:w-96" />
+          <Skeleton className="h-4 w-80" />
         </div>
 
         {/* Filters Skeleton */}
