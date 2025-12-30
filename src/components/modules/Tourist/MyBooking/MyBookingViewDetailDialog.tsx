@@ -12,7 +12,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { formatDateTime } from "@/lib/formatters";
 import { IBooking } from "@/types/booking.interface";
-import { Calendar, User, Users } from "lucide-react";
+import { Calendar, Users } from "lucide-react";
 
 interface IBookingViewDialogProps {
   open: boolean;

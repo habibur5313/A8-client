@@ -9,7 +9,7 @@ export function DestinationCard({ name, rating, guideCount, imageUrl }: Destinat
   return (
     <div className="group relative rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
       {/* Image Background */}
-      <div className="aspect-[4/5] w-full relative overflow-hidden">
+      <div className="aspect-4/5 w-full relative overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
           style={{ backgroundImage: `url(${imageUrl})`, backgroundColor: '#cbd5e1' }}

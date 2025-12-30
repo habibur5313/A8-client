@@ -5,7 +5,6 @@ import { useState } from "react";
 import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
 import { logoutUser } from "@/services/auth/logoutUser";
-import { userInfo } from "os";
 import { ModeToggle } from "../ModeToggle";
 
 export function PublicNavbar({accessToken}: {accessToken?: string | null}) {
