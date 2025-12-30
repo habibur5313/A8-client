@@ -11,7 +11,7 @@ export function GuideOverviewCard({ guide }: GuideOverviewProps) {
   return (
     <div className="bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden">
       {/* Header Banner */}
-      <div className="h-32 bg-gradient-to-r from-blue-500 to-emerald-400 relative">
+      <div className="h-32 bg-linear-to-r from-blue-500 to-emerald-400 relative">
         <div className="absolute -bottom-12 left-6">
           <Avatar className="h-32 w-32">
                   { guide?.profile?.profilePhoto ? (

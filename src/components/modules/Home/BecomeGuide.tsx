@@ -11,7 +11,7 @@ export function BecomeGuide() {
               alt="Group of friends" 
               className="w-full h-full object-cover opacity-40"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/80 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-r from-gray-900 via-gray-900/80 to-transparent"></div>
           </div>
           <div className="relative z-10 p-12 md:p-20 max-w-3xl">
             <span className="inline-block px-4 py-1.5 rounded-full bg-yellow-400 text-yellow-900 font-bold text-sm mb-6">

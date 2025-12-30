@@ -171,7 +171,7 @@ export default function PaymentPage() {
                 <button
                   onClick={handlePay}
                   disabled={processing}
-                  className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-white shadow ${processing ? "bg-gray-400 cursor-not-allowed" : "bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600"}`}>
+                  className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-white shadow ${processing ? "bg-gray-400 cursor-not-allowed" : "bg-linear-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600"}`}>
                   {processing ? "Processing..." : "Request to Pay"}
                 </button>
 

@@ -130,7 +130,7 @@ export default async function GuideDashboard() {
             <AvailabilityToggle />
 
             {/* Quick Actions Card */}
-            <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl p-6 text-white shadow-lg">
+            <div className="bg-linear-to-br from-blue-600 to-blue-700 rounded-xl p-6 text-white shadow-lg">
               <h3 className="font-bold text-lg mb-2">Pro Tip</h3>
               <p className="text-blue-100 text-sm mb-4">
                 Updating your availability 3 days in advance increases booking

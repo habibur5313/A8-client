@@ -21,7 +21,7 @@ export function LoginForm({ redirect }: { redirect?: string }) {
     <div className="w-full max-w-md">
       {/* Logo */}
       <div className="mb-8">
-        <div className="w-12 h-12 bg-gradient-to-br from-coral-400 to-coral-600 rounded-2xl flex items-center justify-center mb-4">
+        <div className="w-12 h-12 bg-linear-to-br from-coral-400 to-coral-600 rounded-2xl flex items-center justify-center mb-4">
           <Link href="/" className="flex items-center gap-2">
           <svg
             className="w-7 h-7 dark:text-white"

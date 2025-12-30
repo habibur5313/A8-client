@@ -32,7 +32,7 @@ const TourViewDetailDialog = ({ open, onClose, tour }: ITourViewDialogProps) => 
 
         <div className="flex-1 overflow-y-auto px-6 pb-6">
           {/* Tour Header */}
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 p-6 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg mb-6">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 p-6 bg-linear-to-br from-blue-50 to-cyan-50 rounded-lg mb-6">
             <Avatar className="h-24 w-24 border-4 border-white shadow-lg">
               {tour.images?.[0] ? (
                 <AvatarImage src={tour.images[0]} alt={tour.title} />

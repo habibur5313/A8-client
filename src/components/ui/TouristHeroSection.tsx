@@ -1,7 +1,7 @@
 import { CloudSun, MapPin, Thermometer } from 'lucide-react'
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 to-teal-500 text-white shadow-xl">
+    <section className="relative overflow-hidden rounded-3xl bg-linear-to-r from-blue-600 to-teal-500 text-white shadow-xl">
       {/* Decorative circles */}
       <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-white/10 blur-3xl"></div>
       <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-yellow-400/20 blur-3xl"></div>

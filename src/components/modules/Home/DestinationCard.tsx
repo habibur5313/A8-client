@@ -14,7 +14,7 @@ export function DestinationCard({ name, rating, guideCount, imageUrl }: Destinat
           className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
           style={{ backgroundImage: `url(${imageUrl})`, backgroundColor: '#cbd5e1' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
       </div>
       {/* Content Overlay */}
       <div className="absolute bottom-0 left-0 right-0 p-6 text-white">

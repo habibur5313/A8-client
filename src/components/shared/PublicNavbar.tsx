@@ -29,10 +29,10 @@ export function PublicNavbar({accessToken}: {accessToken?: string | null}) {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-700 to-blue-400 rounded-2xl flex items-center justify-center">
+            <div className="w-10 h-10 bg-linear-to-br from-blue-700 to-blue-400 rounded-2xl flex items-center justify-center">
               <MapPin className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-700 to-blue-400 bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-linear-to-r from-blue-700 to-blue-400 bg-clip-text text-transparent">
               TravelGuide
             </span>
           </div>
@@ -81,7 +81,7 @@ export function PublicNavbar({accessToken}: {accessToken?: string | null}) {
               </Button>
             ) : (
               <Link href="/login">
-                <Button className="px-6 py-2.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold">
+                <Button className="px-6 py-2.5 bg-linear-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold">
                   Login
                 </Button>
               </Link>
@@ -144,7 +144,7 @@ export function PublicNavbar({accessToken}: {accessToken?: string | null}) {
               </Button>
             ) : (
               <Link href="/login">
-                <Button className="px-6 py-2.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold">
+                <Button className="px-6 py-2.5 bg-linear-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold">
                   Login
                 </Button>
               </Link>

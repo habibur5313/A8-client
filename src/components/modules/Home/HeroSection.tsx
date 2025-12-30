@@ -7,8 +7,8 @@ export function HeroSection() {
       {/* Background Pattern */}
       <div className="absolute inset-0 z-0 bg-blue-50">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-30"></div>
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-100/50 to-transparent rounded-l-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-yellow-100/50 to-transparent rounded-tr-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-blue-100/50 to-transparent rounded-l-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-linear-to-tr from-yellow-100/50 to-transparent rounded-tr-full blur-3xl"></div>
       </div>
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-4xl mx-auto mb-12">
@@ -21,7 +21,7 @@ export function HeroSection() {
           
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 tracking-tight mb-6 leading-tight">
             Explore Any City <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500">Like a Local</span>
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-teal-500">Like a Local</span>
           </h1>
           
           <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">

@@ -49,7 +49,7 @@ export function FeaturedExperiences() {
               />
               
               {/* Gradient Overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-t ${cat.gradient} opacity-80 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-90`} />
+              <div className={`absolute inset-0 bg-linear-to-t ${cat.gradient} opacity-80 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-90`} />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
               {/* Content */}
               <div className="absolute inset-0 p-8 flex flex-col justify-between text-white">

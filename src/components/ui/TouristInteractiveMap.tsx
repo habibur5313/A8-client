@@ -14,7 +14,7 @@ export function InteractiveMap() {
         <div
           className="absolute inset-0 opacity-40"
           style={{
-            backgroundImage: "radial-gradient(#cbd5e1 1px, transparent 1px)",
+            backgroundImage: "radial-linear(#cbd5e1 1px, transparent 1px)",
             backgroundSize: "20px 20px",
           }}
         ></div>

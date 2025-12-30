@@ -32,8 +32,8 @@ export function GuideCard({ guide }: GuideCardProps) {
         transition-all duration-300
       "
     >
-      {/* TOP GRADIENT */}
-      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-br from-sky-500/10 to-purple-500/10" />
+      {/* TOP linear */}
+      <div className="absolute inset-x-0 top-0 h-24 bg-linear-to-br from-sky-500/10 to-purple-500/10" />
 
       <div className="relative p-6 flex flex-col h-full">
         {/* HEADER */}

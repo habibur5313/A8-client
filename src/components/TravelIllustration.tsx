@@ -2,13 +2,13 @@ import React from 'react';
 export function TravelIllustration() {
   return (
     <div className="relative w-full h-full flex items-center justify-center p-8 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-mint-50 to-coral-50"></div>
+      {/* Background linear */}
+      <div className="absolute inset-0 bg-linear-to-br from-blue-50 via-mint-50 to-coral-50"></div>
       
       {/* Decorative elements */}
-      <div className="absolute top-20 left-20 w-16 h-16 bg-gradient-to-br from-coral-300 to-coral-400 rounded-full opacity-20 animate-float"></div>
-      <div className="absolute bottom-32 right-24 w-24 h-24 bg-gradient-to-br from-blue-300 to-blue-400 rounded-full opacity-20 animate-float-delayed"></div>
-      <div className="absolute top-1/3 right-16 w-12 h-12 bg-gradient-to-br from-mint-300 to-mint-400 rounded-full opacity-20 animate-float"></div>
+      <div className="absolute top-20 left-20 w-16 h-16 bg-linear-to-br from-coral-300 to-coral-400 rounded-full opacity-20 animate-float"></div>
+      <div className="absolute bottom-32 right-24 w-24 h-24 bg-linear-to-br from-blue-300 to-blue-400 rounded-full opacity-20 animate-float-delayed"></div>
+      <div className="absolute top-1/3 right-16 w-12 h-12 bg-linear-to-br from-mint-300 to-mint-400 rounded-full opacity-20 animate-float"></div>
       {/* Main illustration */}
       <svg className="relative z-10 w-full max-w-lg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
         {/* Map background */}

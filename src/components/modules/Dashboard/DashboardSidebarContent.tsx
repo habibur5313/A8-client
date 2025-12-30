@@ -28,7 +28,7 @@ const DashboardSidebarContent = ({
       {/* Logo / Brand */}
       <div className="p-6 border-b border-slate-200/60 dark:border-slate-800/60">
         <Link href={dashboardHome} className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-teal-500 rounded-xl flex items-center justify-center">
+          <div className="w-10 h-10 bg-linear-to-br from-blue-500 to-teal-500 rounded-xl flex items-center justify-center">
             <Map className="text-white" size={24} />
           </div>
           <div>
@@ -61,7 +61,7 @@ const DashboardSidebarContent = ({
                         className={cn(
                           "w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all",
                           isActive
-                            ? "bg-gradient-to-r from-blue-500 to-teal-500 text-white shadow-lg shadow-blue-500/25"
+                            ? "bg-linear-to-r from-blue-500 to-teal-500 text-white shadow-lg shadow-blue-500/25"
                             : "text-slate-600 dark:text-slate-400 hover:bg-slate-100/80 dark:hover:bg-slate-800/80 hover:text-slate-800 dark:hover:text-slate-50"
                         )}
                       >
@@ -80,7 +80,7 @@ const DashboardSidebarContent = ({
       {/* Bottom User Info */}
       <div className="p-4 border-t border-slate-200/60 dark:border-slate-800/60">
         <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50/80">
-          <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-pink-500 rounded-full flex items-center justify-center text-white font-semibold">
+          <div className="w-10 h-10 bg-linear-to-br from-orange-400 to-pink-500 rounded-full flex items-center justify-center text-white font-semibold">
             {userInfo.profile.name.charAt(0).toUpperCase()}
           </div>
 
