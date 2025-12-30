@@ -1,8 +1,8 @@
 import GuidesPageSkeleton from '@/components/shared/GuidesPageSkeleton'
 import React from 'react'
 
-const GuidesLoading = () => {
+const GuidesPageLoading = () => {
   return <GuidesPageSkeleton />
 }
 
-export default GuidesLoading
+export default GuidesPageLoading
